@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.ranger;
-in
-{
+in {
   options.vim.visual.ranger = {
     enable = mkEnableOption "Ranger filetree [ranger]";
   };

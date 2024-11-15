@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.luatab;
-in
-{
+in {
   options.vim.visual.luatab = {
     enable = mkEnableOption "Luatab [luatab]";
   };

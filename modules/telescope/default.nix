@@ -19,41 +19,41 @@ in {
 
     vim.nnoremap =
       {
-        "<leader>ff" = "<cmd> Telescope find_files<CR>";
-        "<leader>fg" = "<cmd> Telescope live_grep<CR>";
-        "<leader>fh" = "<cmd> Telescope help_tags<CR>";
-        "<leader>ft" = "<cmd> Telescope<CR>";
-        "<leader>fc" = "<cmd> TodoTelescope<CR>";
+        "<leader>Tf" = "<cmd> Telescope find_files<CR>";
+        "<leader>Tg" = "<cmd> Telescope live_grep<CR>";
+        "<leader>Th" = "<cmd> Telescope help_tags<CR>";
+        "<leader>Tt" = "<cmd> Telescope<CR>";
+        "<leader>Tc" = "<cmd> TodoTelescope<CR>";
         "<leader><space>" = "<cmd> Telescop grep_string<CR>";
 
         # Buffers
         "<Tab>" = "<cmd> Telescope buffers<CR>";
 
-        "<leader>fvcw" = "<cmd> Telescope git_commits<CR>";
-        "<leader>fvcb" = "<cmd> Telescope git_bcommits<CR>";
-        "<leader>fvb" = "<cmd> Telescope git_branches<CR>";
-        "<leader>fvs" = "<cmd> Telescope git_status<CR>";
-        "<leader>fvx" = "<cmd> Telescope git_stash<CR>";
+        "<leader>Tvcw" = "<cmd> Telescope git_commits<CR>";
+        "<leader>Tvcb" = "<cmd> Telescope git_bcommits<CR>";
+        "<leader>Tvb" = "<cmd> Telescope git_branches<CR>";
+        "<leader>Tvs" = "<cmd> Telescope git_status<CR>";
+        "<leader>Tvx" = "<cmd> Telescope git_stash<CR>";
       }
       // (
         if config.vim.lsp.enable
         then {
-          "<leader>flsb" = "<cmd> Telescope lsp_document_symbols<CR>";
-          "<leader>flsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
+          "<leader>Tlsb" = "<cmd> Telescope lsp_document_symbols<CR>";
+          "<leader>Tlsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
 
-          "<leader>flr" = "<cmd> Telescope lsp_references<CR>";
-          "<leader>fli" = "<cmd> Telescope lsp_implementations<CR>";
-          "<leader>flD" = "<cmd> Telescope lsp_definitions<CR>";
-          "<leader>flt" = "<cmd> Telescope lsp_type_definitions<CR>";
-          "<leader>fld" = "<cmd> Telescope diagnostics<CR>";
-          "<leader>fla" = "<cmd> Telescope lsp_code_action<CR>";
+          "<leader>Tlr" = "<cmd> Telescope lsp_references<CR>";
+          "<leader>Tli" = "<cmd> Telescope lsp_implementations<CR>";
+          "<leader>TlD" = "<cmd> Telescope lsp_definitions<CR>";
+          "<leader>Tlt" = "<cmd> Telescope lsp_type_definitions<CR>";
+          "<leader>Tld" = "<cmd> Telescope diagnostics<CR>";
+          "<leader>Tla" = "<cmd> Telescope lsp_code_action<CR>";
         }
         else {}
       )
       // (
         if config.vim.treesitter.enable
         then {
-          "<leader>fs" = "<cmd> Telescope treesitter<CR>";
+          "<leader>Ts" = "<cmd> Telescope treesitter<CR>";
         }
         else {}
       );

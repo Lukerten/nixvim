@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.nvimWebDevicons;
-in
-{
+in {
   options.vim.visual.nvimWebDevicons = {
     enable = mkEnableOption "Dev icons. Required for certain plugins [nvim-web-devicons].";
   };

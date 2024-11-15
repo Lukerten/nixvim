@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.noice;
-in
-{
+in {
   options.vim.visual.noice = {
     enable = mkEnableOption "Noice configuration.";
 

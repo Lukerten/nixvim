@@ -25,7 +25,7 @@ with builtins; let
         '';
     };
   };
-  in {
+in {
   options.vim.languages.golang = {
     enable = mkEnableOption "Golang language support";
 

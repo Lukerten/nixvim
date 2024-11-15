@@ -354,7 +354,7 @@
         vim.visual = {
           enable = true;
           autopairs.enable = true;
-          gui.enable = true;
+          gui.enable = false;
           indentBlankline = {
             enable = true;
           };

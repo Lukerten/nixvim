@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.todo;
-in
-{
+in {
   options.vim.visual.todo = {
     enable = mkEnableOption "Todo highlights [nvim-todo]";
   };

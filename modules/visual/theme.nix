@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.theme;
-in
-{
+in {
   options.vim.visual.theme = {
     enable = mkEnableOption "Theme configuration.";
   };
@@ -15,10 +13,8 @@ in
   config = mkIf cfg.enable {
     vim.startPlugins = ["theme"];
     vim.luaConfigRC.nightfox =
-      nvim.dag.entryAnywhere
-      /*
-      lua
-      */
+      nvim.dag.entryAnywhere # lua
+      
       ''
         require('nightfox').setup({
           options = {

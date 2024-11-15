@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.autopairs;
-in
-{
+in {
   options.vim.visual.autopairs = {
     enable = mkEnableOption "auto pairs [nvim-autopairs]";
     type = mkOption {

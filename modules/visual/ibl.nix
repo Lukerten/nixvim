@@ -3,11 +3,9 @@
   lib,
   ...
 }:
-with lib;
-let
+with lib; let
   cfg = config.vim.visual.indentBlankline;
-in
-{
+in {
   options.vim.visual.indentBlankline = {
     enable = mkEnableOption "indentation guides [indent-blankline].";
 

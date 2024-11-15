@@ -25,13 +25,13 @@ in {
       left = mkOption {
         description = "Section separator for left side";
         type = types.str;
-        default = "";
+        default = "";
       };
 
       right = mkOption {
         description = "Section separator for right side";
         type = types.str;
-        default = "";
+        default = "";
       };
     };
 
@@ -160,6 +160,7 @@ in {
           options = {
             icons_enabled = ${boolToString cfg.icons},
             theme = "${toString cfg.theme}",
+            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" , "Trouble" },
             component_separators = {
               left = "${cfg.componentSeparator.left}",
               right = "${cfg.componentSeparator.right}"
@@ -168,7 +169,6 @@ in {
               left = "${cfg.sectionSeparator.left}",
               right = "${cfg.sectionSeparator.right}"
             },
-            disabled_filetypes = {},
           },
           sections = {
             lualine_a = ${cfg.activeSection.a},

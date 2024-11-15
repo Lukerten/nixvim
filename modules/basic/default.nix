@@ -22,7 +22,7 @@ in {
 
     disableArrows = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Set to prevent arrow keys from moving cursor";
     };
 
@@ -225,9 +225,6 @@ in {
 
         # Clear Search
         "<leader>dv" = ":noh<CR>";
-
-        # BufOnly command
-        "<leader>bq" = ":BufOnly<CR>";
       })
     ];
 

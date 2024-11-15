@@ -7,9 +7,26 @@ with lib;
 with builtins; let
   cfg = config.vim.visual.gui;
 in {
-
   options.vim.visual.gui = {
     enable = mkEnableOption "Neovide gui";
+
+    font = {
+      name = mkOption {
+        description = "Font name";
+        type = types.str;
+        default = "FiraCode Nerd Font";
+      };
+      size = mkOption {
+        description = "Font size";
+        type = types.int;
+        default = 10;
+      };
+      style = mkOption {
+        description = "Font style";
+        type = types.str;
+        default = "Medium";
+      };
+    };
   };
 
   config = mkIf (cfg.enable) {
@@ -33,8 +50,7 @@ in {
           vim.g.neovide_transparency = 0.91
 
           -- Neovide Font
-          vim.o.guifont = "JetBrainsMono Nerd Font:h10:Medium:i"
-        end
+          vim.o.guifont = "${cfg.font.name}:h${toString cfg.font.size}:${cfg.font.style}:i"
         -- Lua function to open multiple terminals in new tab
         function _G.OpenMultipleTerminalsInNewTab()
           vim.cmd("tabnew")
