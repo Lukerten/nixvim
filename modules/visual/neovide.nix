@@ -5,13 +5,10 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.gui;
+  cfg = config.vim.visual.gui;
 in {
-  imports = [
-    ./project.nix
-  ];
 
-  options.vim.gui = {
+  options.vim.visual.gui = {
     enable = mkEnableOption "Neovide gui";
   };
 
@@ -24,7 +21,6 @@ in {
       ''
          -- Neovide
         if vim.g.neovide then
-          -- Neovide options
           vim.g.neovide_fullscreen = false
           vim.g.neovide_hide_mouse_when_typing = false
           vim.g.neovide_refresh_rate = 165

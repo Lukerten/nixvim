@@ -159,6 +159,10 @@
       url = "github:ellisonleao/glow.nvim";
       flake = false;
     };
+    plugins-octo-nvim = {
+      url = "github:pwntester/octo.nvim";
+      flake = false;
+    };
 
     # Git
     plugins-gitsigns-nvim = {
@@ -209,10 +213,6 @@
       url = "github:rcarriga/nvim-notify";
       flake = false;
     };
-    plugins-nvim-web-devicons = {
-      url = "github:kyazdani42/nvim-web-devicons";
-      flake = false;
-    };
     plugins-ranger = {
       url = "github:kelly-lin/ranger.nvim";
       flake = false;
@@ -225,15 +225,26 @@
       url = "github:folke/todo-comments.nvim";
       flake = false;
     };
+    plugins-nvim-tree-lua = {
+      url = "github:kyazdani42/nvim-tree.lua";
+      flake = false;
+    };
+    plugins-alpha-nvim = {
+      url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
 
     # Key binding help
     plugins-which-key = {
       url = "github:folke/which-key.nvim";
       flake = false;
     };
-
     plugins-plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    plugins-nvim-web-devicons = {
+      url = "github:kyazdani42/nvim-web-devicons";
       flake = false;
     };
   };
@@ -260,53 +271,19 @@
       config = {
         build.viAlias = false;
         build.vimAlias = true;
+
+        # Autocompletion
         vim.autocomplete = {
           enable = true;
           type = "nvim-cmp";
         };
-        vim.copilot.chat = {
-          enable = true;
-        };
-        vim.git = {
-          enable = true;
-          gitsigns.enable = true;
-          gitsigns.codeActions = true;
-          lazygit.enable = true;
-        };
-        vim.gui.enable = false;
-        vim.keys = {
-          enable = true;
-          whichKey.enable = true;
-        };
-        vim.languages = {
-          enableLSP = true;
-          enableDebug = true;
-          enableFormat = true;
-          enableTreesitter = true;
-          enableExtraDiagnostics = true;
 
-          clang.enable = true;
-          css.enable = true;
-          haskell.enable = true;
-          html.enable = true;
-          java.enable = true;
-          kotlin.enable = true;
-          lua.enable = true;
-          markdown.enable = true;
-          nix.enable = true;
-          python.enable = true;
-          rust = {
-            enable = true;
-            crates.enable = true;
-          };
-          scala.enable = true;
-          shell.enable = true;
-          sql.enable = true;
-          tailwind.enable = true;
-          ts.enable = true;
-          vue.enable = true;
-          xml.enable = true;
+        # Copilot
+        vim.copilot = {
+          chat.enable = true;
         };
+
+        # LSP
         vim.lsp = {
           formatOnSave = false;
           fidget.enable = true;
@@ -315,30 +292,79 @@
           lspSignature.enable = true;
           trouble.enable = true;
         };
+
+        # Git
+        vim.git = {
+          enable = true;
+          gitsigns.enable = true;
+          gitsigns.codeActions = true;
+          lazygit.enable = true;
+        };
+
+        # Languages
+        vim.languages = {
+          enableLSP = true;
+          enableDebug = true;
+          enableFormat = true;
+          enableTreesitter = true;
+          enableExtraDiagnostics = true;
+
+          # Enable Language Features for:
+          clang.enable = true;
+          css.enable = true;
+          dhall.enable = true;
+          golang.enable = true;
+          haskell.enable = true;
+          html.enable = true;
+          java.enable = true;
+          kotlin.enable = true;
+          lua.enable = true;
+          markdown.enable = true;
+          nix.enable = true;
+          python.enable = true;
+          scala.enable = true;
+          shell.enable = true;
+          sql.enable = true;
+          tailwind.enable = true;
+          ts.enable = true;
+          vue.enable = true;
+          xml.enable = true;
+          rust = {
+            enable = true;
+            crates.enable = true;
+          };
+        };
+
+        # Debugging
         vim.debug = {
           virtualText.enable = true;
           ui.enable = true;
         };
-        vim.undo.enable = true;
-        vim.note.enable = true;
-        vim.visuals = {
+
+        # Utilities
+        vim.utils = {
+          alpha.enable = true;
+          note.enable = true;
+          nvimTree.enable = true;
+          undo.enable = true;
+          whichKey.enable = true;
+        };
+
+        # Visuals
+        vim.visual = {
           enable = true;
           autopairs.enable = true;
+          gui.enable = true;
           indentBlankline = {
             enable = true;
           };
-          lualine = {
-            enable = true;
-            theme = "nightfox";
-          };
+          lualine.enable = true;
           luatab.enable = true;
-          noice = {
-            enable = true;
-          };
+          noice.enable = true;
           nvimWebDevicons.enable = true;
           ranger.enable = true;
-          theme.enable = true;
           todo.enable = true;
+          theme.enable = true;
         };
         vim.telescope.enable = true;
       };

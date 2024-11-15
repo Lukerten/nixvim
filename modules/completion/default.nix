@@ -107,7 +107,6 @@ in {
       */
       ''
         local nvim_cmp_menu_map = function(entry, vim_item)
-          -- name for each source
           vim_item.menu = ({
             ${builtMaps}
           })[entry.source.name]
@@ -120,16 +119,12 @@ in {
           return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
         end
 
-        local has_words_before = function()
-          local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-          return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-        end
-
         local feedkey = function(key, mode)
           vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
         end
 
         local cmp = require'cmp'
+        local cmp_window = require "cmp.config.window"
         cmp.setup({
           snippet = {
             expand = function(args)
@@ -139,6 +134,12 @@ in {
           sources = {
             ${builtSources}
           },
+
+          window = {
+            completion = cmp_window.bordered(),
+            documentation = cmp_window.bordered(),
+          },
+
           mapping = {
             ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
             ['<C-f>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c'}),
@@ -184,7 +185,7 @@ in {
         ''}
         })
 
-        ${optionalString (config.vim.visuals.autopairs.enable && config.vim.visuals.autopairs.type == "nvim-autopairs") ''
+        ${optionalString (config.vim.visual.autopairs.enable && config.vim.visual.autopairs.type == "nvim-autopairs") ''
           local cmp_autopairs = require('nvim-autopairs.completion.cmp')
           cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { text = ""} }))
         ''}

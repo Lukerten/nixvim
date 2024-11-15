@@ -11,16 +11,13 @@
     ./core
     ./debug
     ./git
-    ./gui
-    ./keys
     ./languages
     ./lsp
-    ./note
     ./snippets
     ./telescope
     ./treesitter
-    ./undo
-    ./visuals
+    ./utils
+    ./visual
   ];
 
   pkgsModule = {config, ...}: {

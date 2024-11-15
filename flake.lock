@@ -58,6 +58,22 @@
         "type": "github"
       }
     },
+    "plugins-alpha-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731604504,
+        "narHash": "sha256-sNi5qarejYqM4/J7lBZI3gjVLxer5FBPq8K6qjqcMjA=",
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "rev": "de72250e054e5e691b9736ee30db72c65d560771",
+        "type": "github"
+      },
+      "original": {
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "type": "github"
+      }
+    },
     "plugins-cmp-buffer": {
       "flake": false,
       "locked": {
@@ -618,6 +634,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-tree-lua": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731275826,
+        "narHash": "sha256-YIClwxyw4fNos5OIBZOjM0dlCw+yOhDDnq5jONSu7rs=",
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "rev": "28eac2801b201f301449e976d7a9e8cfde053ba3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kyazdani42",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
     "plugins-nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -647,6 +679,22 @@
       "original": {
         "owner": "epwalsh",
         "repo": "obsidian.nvim",
+        "type": "github"
+      }
+    },
+    "plugins-octo-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731273225,
+        "narHash": "sha256-aCZdciYUlDzUI94lhYe/1mUlyxjGw55gW088AwHMJtc=",
+        "owner": "pwntester",
+        "repo": "octo.nvim",
+        "rev": "3f9f945401f4dbbeb7ecee5a5585e26ef743105c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "pwntester",
+        "repo": "octo.nvim",
         "type": "github"
       }
     },
@@ -863,6 +911,7 @@
         "flake-utils": "flake-utils",
         "nil": "nil",
         "nixpkgs": "nixpkgs",
+        "plugins-alpha-nvim": "plugins-alpha-nvim",
         "plugins-cmp-buffer": "plugins-cmp-buffer",
         "plugins-cmp-dap": "plugins-cmp-dap",
         "plugins-cmp-nvim-lsp": "plugins-cmp-nvim-lsp",
@@ -898,8 +947,10 @@
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-nvim-metals": "plugins-nvim-metals",
         "plugins-nvim-nio": "plugins-nvim-nio",
+        "plugins-nvim-tree-lua": "plugins-nvim-tree-lua",
         "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "plugins-obsidian": "plugins-obsidian",
+        "plugins-octo-nvim": "plugins-octo-nvim",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-project": "plugins-project",
         "plugins-ranger": "plugins-ranger",

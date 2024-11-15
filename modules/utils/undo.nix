@@ -5,9 +5,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.undo;
+  cfg = config.vim.utils.undo;
 in {
-  options.vim.undo = {
+  options.vim.utils.undo = {
     enable = mkEnableOption "enable undotree";
   };
 

@@ -5,7 +5,7 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.gui;
+  cfg = config.vim.visual.gui;
 in {
   config = mkIf (cfg.enable) {
     vim.startPlugins = [

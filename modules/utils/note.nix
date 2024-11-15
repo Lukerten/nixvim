@@ -5,9 +5,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.note;
+  cfg = config.vim.utils.note;
 in {
-  options.vim.note = {
+  options.vim.utils.note = {
     enable = mkEnableOption "enable note taking in nvim";
   };
 

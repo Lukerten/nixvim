@@ -40,7 +40,7 @@ in {
 
     wordWrap = mkOption {
       type = types.bool;
-      default = true;
+      default = false;
       description = "Enable word wrapping.";
     };
 
@@ -70,7 +70,7 @@ in {
 
     lineNumberMode = mkOption {
       type = with types; enum ["relative" "number" "relNumber" "none"];
-      default = "relNumber";
+      default = "number";
       description = "How line numbers are displayed. none, relative, number, relNumber";
     };
 
@@ -82,7 +82,7 @@ in {
 
     tabWidth = mkOption {
       type = types.int;
-      default = 4;
+      default = 2;
       description = "Set the width of tabs";
     };
 
