@@ -145,7 +145,6 @@ in {
                 pkgs ? config._module.args.pkgs,
                 lib ? pkgs.lib,
                 extraSpecialArgs ? {},
-                check ? config._module.args.check,
               }:
                 import ../../modules {
                   modules = currentModules ++ modules;
