@@ -160,7 +160,7 @@ in {
           options = {
             icons_enabled = ${boolToString cfg.icons},
             theme = "${toString cfg.theme}",
-            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" , "Trouble" },
+            disabled_filetypes = { "dashboard", "NvimTree", "Outline", "alpha" , "Trouble", "copilot-chat" , "undotree"},
             component_separators = {
               left = "${cfg.componentSeparator.left}",
               right = "${cfg.componentSeparator.right}"

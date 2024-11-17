@@ -5,10 +5,10 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.utils.note;
+  cfg = config.vim.utils.obsidian;
 in {
-  options.vim.utils.note = {
-    enable = mkEnableOption "enable note taking in nvim";
+  options.vim.utils.obsidian = {
+    enable = mkEnableOption "enable obsidian plugin";
   };
 
   config = mkIf (cfg.enable) {
@@ -22,10 +22,10 @@ in {
       lua
       */
       ''
-        vim.api.nvim_set_keymap('n', '<leader>on', '<cmd>ObsidianNew<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>of', '<cmd>ObsidianSearch<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>ow', '<cmd>ObsidianWorkspace<CR>', { noremap = true, silent = true })
-        vim.api.nvim_set_keymap('n', '<leader>og', '<cmd>ObsidianFollowLink<CR>', { noremap = true, silent = true })
+        vim.api.nvim_set_keymap('n', '<leader>on', '<cmd>ObsidianNew<CR>', { noremap = true, silent = true , desc = "New note" })
+        vim.api.nvim_set_keymap('n', '<leader>of', '<cmd>ObsidianSearch<CR>', { noremap = true, silent = true, desc = "Search notes" })
+        vim.api.nvim_set_keymap('n', '<leader>ow', '<cmd>ObsidianWorkspace<CR>', { noremap = true, silent = true , desc = "Change workspace" })
+        vim.api.nvim_set_keymap('n', '<leader>og', '<cmd>ObsidianFollowLink<CR>', { noremap = true, silent = true , desc = "Follow link" })
 
         require("obsidian").setup({
               workspaces = {
@@ -36,6 +36,10 @@ in {
                 {
                   name = "work",
                   path = "~/Documents/notes/work",
+                },
+                {
+                  name = "student",
+                  path = "~/Documents/notes/student",
                 },
               },
               completion = {

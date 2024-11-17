@@ -6,9 +6,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.utils.nvimTree;
+  cfg = config.vim.visual.nvimTree;
 in {
-  options.vim.utils.nvimTree = {
+  options.vim.visual.nvimTree = {
     enable = mkOption {
       type = types.bool;
       default = false;

@@ -14,7 +14,6 @@ in {
     vim.startPlugins = ["theme"];
     vim.luaConfigRC.nightfox =
       nvim.dag.entryAnywhere # lua
-      
       ''
         require('nightfox').setup({
           options = {
@@ -48,6 +47,7 @@ in {
           },
         })
         vim.cmd("colorscheme nightfox")
+        vim.opt.fillchars = { eob = ' ' }
       '';
   };
 }

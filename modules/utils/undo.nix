@@ -23,7 +23,7 @@ in {
       */
       ''
         require('undotree').setup()
-        vim.api.nvim_set_keymap('n', '<leader>u', ':lua require("undotree").toggle()<CR>', {noremap = true, silent = true})
+        vim.api.nvim_set_keymap('n', '<leader>u', ':lua require("undotree").toggle()<CR>', {noremap = true, silent = true, desc = "Toggle undotree"})
       '';
   };
 }

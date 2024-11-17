@@ -197,10 +197,6 @@
       url = "github:hoob3rt/lualine.nvim";
       flake = false;
     };
-    plugins-luatab = {
-      url = "github:alvarosevilla95/luatab.nvim";
-      flake = false;
-    };
     plugins-noice = {
       url = "github:folke/noice.nvim";
       flake = false;
@@ -231,6 +227,22 @@
     };
     plugins-alpha-nvim = {
       url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
+    plugins-vimwiki = {
+      url = "github:vimwiki/vimwiki";
+      flake = false;
+    };
+    plugins-kommentary = {
+      url = "github:b3nj5m1n/kommentary";
+      flake = false;
+    };
+    plugins-bufferline = {
+      url = "github:akinsho/nvim-bufferline.lua";
+      flake = false;
+    };
+    plugins-bbye = {
+      url = "github:moll/vim-bbye";
       flake = false;
     };
 
@@ -276,11 +288,6 @@
         vim.autocomplete = {
           enable = true;
           type = "nvim-cmp";
-        };
-
-        # Copilot
-        vim.copilot = {
-          chat.enable = true;
         };
 
         # LSP
@@ -343,29 +350,15 @@
 
         # Utilities
         vim.utils = {
-          alpha.enable = true;
-          note.enable = true;
-          nvimTree.enable = true;
+          copilot.enable = true;
+          kommentary.enable = true;
+          obsidian.enable = true;
           undo.enable = true;
+          vimwiki.enable = true;
           whichKey.enable = true;
         };
 
-        # Visuals
-        vim.visual = {
-          enable = true;
-          autopairs.enable = true;
-          gui.enable = false;
-          indentBlankline = {
-            enable = true;
-          };
-          lualine.enable = true;
-          luatab.enable = true;
-          noice.enable = true;
-          nvimWebDevicons.enable = true;
-          ranger.enable = true;
-          todo.enable = true;
-          theme.enable = true;
-        };
+        vim.visual.enable = true;
         vim.telescope.enable = true;
       };
     };

@@ -7,7 +7,6 @@
     ./basic
     ./build
     ./completion
-    ./copilot
     ./core
     ./debug
     ./git
