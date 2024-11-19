@@ -23,12 +23,12 @@ in {
       */
       ''
         vim.g.vimwiki_list = {{
-          path = '~/Wiki',
+          path = '~/Documents/notes',
           syntax = 'markdown',
           ext = 'md',
           diary_rel_path = 'private/Diary'
         }}
-        vim.api.nvim_set_keymap("n", "<space>w", ":VimwikiIndex<CR>", { noremap = true, silent = true, desc = "Open Vimwiki" })
+        vim.api.nvim_set_keymap("n", "<leader>w", ":VimwikiIndex<CR>", { noremap = true, silent = true, desc = "Open Vimwiki" })
 
       '';
   };

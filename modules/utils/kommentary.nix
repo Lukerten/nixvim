@@ -27,10 +27,6 @@ in {
           use_consistent_indentation = true,
           ignore_whitespace = true,
         })
-
-        vim.keymap.set("v", "<space>c", "<Plug>kommentary_visual_default", { silent = true, noremap = true, desc = "Comment Selected Code" })
-        vim.keymap.set("n", "<space>c", "<Plug>kommentary_line_default", { silent = true, noremap = true, desc = "Comment Line" })
-
       '';
   };
 }

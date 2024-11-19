@@ -9,11 +9,9 @@
     ./completion
     ./core
     ./debug
-    ./git
     ./languages
     ./lsp
     ./snippets
-    ./telescope
     ./treesitter
     ./utils
     ./visual

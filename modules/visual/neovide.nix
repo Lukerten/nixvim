@@ -5,9 +5,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.visual.gui;
+  cfg = config.vim.visual.neovide;
 in {
-  options.vim.visual.gui = {
+  options.vim.visual.neovide = {
     enable = mkEnableOption "Neovide gui";
 
     font = {
@@ -36,22 +36,18 @@ in {
       lua
       */
       ''
-         -- Neovide
-        if vim.g.neovide then
-          vim.g.neovide_fullscreen = false
-          vim.g.neovide_hide_mouse_when_typing = false
-          vim.g.neovide_refresh_rate = 165
-          vim.g.neovide_cursor_vfx_mode = "ripple"
-          vim.g.neovide_cursor_animate_command_line = true
-          vim.g.neovide_cursor_animate_in_insert_mode = true
-          vim.g.neovide_cursor_vfx_particle_lifetime = 5.0
-          vim.g.neovide_cursor_vfx_particle_density = 14.0
-          vim.g.neovide_cursor_vfx_particle_speed = 12.0
-          vim.g.neovide_transparency = 0.91
+        vim.g.neovide_fullscreen = false
+        vim.g.neovide_hide_mouse_when_typing = false
+        vim.g.neovide_refresh_rate = 165
+        vim.g.neovide_cursor_vfx_mode = "ripple"
+        vim.g.neovide_cursor_animate_command_line = true
+        vim.g.neovide_cursor_animate_in_insert_mode = true
+        vim.g.neovide_cursor_vfx_particle_lifetime = 5.0
+        vim.g.neovide_cursor_vfx_particle_density = 14.0
+        vim.g.neovide_cursor_vfx_particle_speed = 12.0
+        vim.g.neovide_transparency = 0.91
+        vim.o.guifont = "FiraCode Nerd Font:h10:Medium:i"
 
-          -- Neovide Font
-          vim.o.guifont = "${cfg.font.name}:h${toString cfg.font.size}:${cfg.font.style}:i"
-        -- Lua function to open multiple terminals in new tab
         function _G.OpenMultipleTerminalsInNewTab()
           vim.cmd("tabnew")
           vim.cmd("terminal")
@@ -69,10 +65,10 @@ in {
         end
 
         vim.keymap.set("t", "<ESC><ESC>", "<C-\\><C-n>", {desc = "Exit terminal mode"})
-        vim.keymap.set("n", "<leader>tv", ":vsplit | terminal<CR>", {desc = "Open vertical split terminal"})
-        vim.keymap.set("n", "<leader>th", ":split | terminal<CR>", {desc = "Open horizontal split terminal"})
-        vim.keymap.set("n", "<leader>tt", ":lua OpenDoubleTerminalsInNewTab()<CR>", {desc = "Open terminal in new tab"})
-        vim.keymap.set("n", "<leader>tm", ":lua OpenMultipleTerminalsInNewTab()<CR>", {desc = "Open terminal in new tab"})
+        vim.keymap.set("n", "<leader>Tv", ":vsplit | terminal<CR>", {desc = "Open vertical split terminal"})
+        vim.keymap.set("n", "<leader>Th", ":split | terminal<CR>", {desc = "Open horizontal split terminal"})
+        vim.keymap.set("n", "<leader>Tt", ":lua OpenDoubleTerminalsInNewTab()<CR>", {desc = "Open terminal in new tab"})
+        vim.keymap.set("n", "<leader>Tm", ":lua OpenMultipleTerminalsInNewTab()<CR>", {desc = "Open terminal in new tab"})
       '';
   };
 }

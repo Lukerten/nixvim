@@ -217,14 +217,6 @@ in {
   config = mkIf cfg.enable {
     vim.startPlugins = ["nvim-tree-lua"];
 
-    vim.nnoremap = {
-      "<leader>Ee" = ":NvimTreeToggle<CR>";
-      "<leader>EE" = ":NvimTreeToggle<CR>";
-      "<leader>Er" = ":NvimTreeRefresh<CR>";
-      "<leader>Ef" = ":NvimTreeFindFile<CR>";
-      "<leader>e" = ":NvimTreeFocus<CR>";
-    };
-
     vim.luaConfigRC.nvimtreelua =
       nvim.dag.entryAnywhere
       /*
@@ -299,6 +291,11 @@ in {
             },
           },
         })
+
+        vim.keymap.set("n", "<leader>Ee", "<cmd>NvimTreeToggle<cr>", {silent = true, noremap = true, desc = "Toggle NvimTree"})
+        vim.keymap.set("n", "<leader>Er", "<cmd>NvimTreeRefresh<cr>", {silent = true, noremap = true, desc = "Refresh NvimTree"})
+        vim.keymap.set("n", "<leader>Ef", "<cmd>NvimTreeFindFile<cr>", {silent = true, noremap = true, desc = "Find file in NvimTree"})
+        vim.keymap.set("n", "<leader>e", "<cmd>NvimTreeFocus<cr>", {silent = true, noremap = true, desc = "Focus NvimTree"})
       '';
   };
 }

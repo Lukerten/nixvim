@@ -22,10 +22,10 @@ in {
       lua
       */
       ''
-        vim.api.nvim_set_keymap('n', '<leader>on', '<cmd>ObsidianNew<CR>', { noremap = true, silent = true , desc = "New note" })
-        vim.api.nvim_set_keymap('n', '<leader>of', '<cmd>ObsidianSearch<CR>', { noremap = true, silent = true, desc = "Search notes" })
-        vim.api.nvim_set_keymap('n', '<leader>ow', '<cmd>ObsidianWorkspace<CR>', { noremap = true, silent = true , desc = "Change workspace" })
-        vim.api.nvim_set_keymap('n', '<leader>og', '<cmd>ObsidianFollowLink<CR>', { noremap = true, silent = true , desc = "Follow link" })
+        vim.api.nvim_set_keymap('n', '<leader>Nn', '<cmd>ObsidianNew<CR>', { noremap = true, silent = true , desc = "New note" })
+        vim.api.nvim_set_keymap('n', '<leader>Nf', '<cmd>ObsidianSearch<CR>', { noremap = true, silent = true, desc = "Search notes" })
+        vim.api.nvim_set_keymap('n', '<leader>Nw', '<cmd>ObsidianWorkspace<CR>', { noremap = true, silent = true , desc = "Change workspace" })
+        vim.api.nvim_set_keymap('n', '<leader>Ng', '<cmd>ObsidianFollowLink<CR>', { noremap = true, silent = true , desc = "Follow link" })
 
         require("obsidian").setup({
               workspaces = {
@@ -47,13 +47,13 @@ in {
                   min_chars = 2,
               },
               mappings = {
-                ["<leader>oc"] = {
+                ["<leader>Oc"] = {
                       action = function()
                         return require("obsidian").util.toggle_checkbox()
                       end,
                       opts = { buffer = true },
                     },
-                    ["<os>"] = {
+                    ["<Os>"] = {
                       action = function()
                         return require("obsidian").util.smart_action()
                       end,

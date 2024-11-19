@@ -5,9 +5,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.git.lazygit;
+  cfg = config.vim.utils.lazygit;
 in {
-  options.vim.git.lazygit = {
+  options.vim.utils.lazygit = {
     enable = mkOption {
       type = types.bool;
       description = "enable git plugin: [lazygit]";

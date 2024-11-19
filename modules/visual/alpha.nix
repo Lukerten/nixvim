@@ -17,11 +17,6 @@ in {
 
   config = mkIf cfg.enable {
     vim.startPlugins = ["alpha-nvim"];
-
-    vim.nnoremap = {
-      "<leader>a" = ":Alpha<CR>";
-    };
-
     vim.luaConfigRC.alpha-nvim =
       nvim.dag.entryAnywhere
       /*
@@ -55,7 +50,7 @@ in {
 
 
         dashboard.section.buttons.val = {
-          dashboard.button( "p", "  Find project"        , ":Telescope projects <CR>"),
+          dashboard.button( "p", "  Find project"        , ":Telescope project <CR>"),
           dashboard.button( "f", "  Find files"          , ":Telescope find_files <CR>"),
           dashboard.button( "F", "󱎸  Find text"           , ":Telescope live_grep <CR>"),
           dashboard.button( "r", "  Recently used files" , ":Telescope oldfiles <CR>"),
@@ -76,6 +71,9 @@ in {
         dashboard.section.header.opts.spacing = 0
         dashboard.opts.opts.noautocmd = true
         require("alpha").setup(dashboard.opts)
+
+        -- Alpha Keybind
+        vim.api.nvim_set_keymap("n", "<leader>h", "<cmd>Alpha<CR>", { noremap = true, silent = true, desc = "Home" })
       '';
   };
 }

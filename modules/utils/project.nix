@@ -5,8 +5,12 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.visual.gui;
+  cfg = config.vim.utils.project;
 in {
+  options.vim.utils.project = {
+    enable = mkEnableOption "Project management";
+  };
+
   config = mkIf (cfg.enable) {
     vim.startPlugins = [
       "project"

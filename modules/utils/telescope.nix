@@ -6,29 +6,27 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.telescope;
+  cfg = config.vim.utils.telescope;
 in {
-  options.vim.telescope = {
+  options.vim.utils.telescope = {
     enable = mkEnableOption "enable telescope";
   };
 
   config = mkIf (cfg.enable) {
     vim.startPlugins = [
       "telescope"
+      "telescope-project"
     ];
 
     vim.nnoremap =
       {
+        "<Tab>" = "<cmd> Telescope buffers<CR>";
         "<leader>Tf" = "<cmd> Telescope find_files<CR>";
-        "<leader>Tg" = "<cmd> Telescope live_grep<CR>";
+        "<leader>Tg" = "<cmd> Telescope grep_string<CR>";
         "<leader>Th" = "<cmd> Telescope help_tags<CR>";
         "<leader>Tt" = "<cmd> Telescope<CR>";
         "<leader>Tc" = "<cmd> TodoTelescope<CR>";
-        "<leader><space>" = "<cmd> Telescop grep_string<CR>";
-
-        # Buffers
-        "<Tab>" = "<cmd> Telescope buffers<CR>";
-
+        "<leader><space>" = "<cmd> Telescop live_grep<CR>";
         "<leader>Tvcw" = "<cmd> Telescope git_commits<CR>";
         "<leader>Tvcb" = "<cmd> Telescope git_bcommits<CR>";
         "<leader>Tvb" = "<cmd> Telescope git_branches<CR>";
@@ -40,7 +38,6 @@ in {
         then {
           "<leader>Tlsb" = "<cmd> Telescope lsp_document_symbols<CR>";
           "<leader>Tlsw" = "<cmd> Telescope lsp_workspace_symbols<CR>";
-
           "<leader>Tlr" = "<cmd> Telescope lsp_references<CR>";
           "<leader>Tli" = "<cmd> Telescope lsp_implementations<CR>";
           "<leader>TlD" = "<cmd> Telescope lsp_definitions<CR>";
@@ -64,6 +61,7 @@ in {
       lua
       */
       ''
+        require'telescope'.load_extension('project')
         require("telescope").setup {
           defaults = {
             vimgrep_arguments = {

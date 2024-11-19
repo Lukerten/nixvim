@@ -85,6 +85,10 @@
       url = "github:nvim-telescope/telescope.nvim";
       flake = false;
     };
+    plugins-telescope-project = {
+      url = "github:nvim-telescope/telescope-project.nvim";
+      flake = false;
+    };
 
     # Projects
     plugins-project = {
@@ -301,12 +305,11 @@
         };
 
         # Git
-        vim.git = {
-          enable = true;
-          gitsigns.enable = true;
-          gitsigns.codeActions = true;
-          lazygit.enable = true;
-        };
+        # vim.git = {
+        #   gitsigns.enable = true;
+        #   gitsigns.codeActions = true;
+        #   lazygit.enable = true;
+        # };
 
         # Languages
         vim.languages = {
@@ -348,18 +351,8 @@
           ui.enable = true;
         };
 
-        # Utilities
-        vim.utils = {
-          copilot.enable = true;
-          kommentary.enable = true;
-          obsidian.enable = true;
-          undo.enable = true;
-          vimwiki.enable = true;
-          whichKey.enable = true;
-        };
-
+        vim.utils.enable = true;
         vim.visual.enable = true;
-        vim.telescope.enable = true;
       };
     };
   in

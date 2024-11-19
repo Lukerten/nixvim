@@ -5,23 +5,17 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.git;
+  cfg = config.vim.visual.gitsigns;
 in {
-  options.vim.git = {
-    enable = mkEnableOption "Git support";
-
-    gitsigns = {
-      enable = mkEnableOption "gitsigns";
-
-      codeActions = mkEnableOption "gitsigns codeactions through null-ls";
-    };
+  options.vim.visual.gitsigns = {
+    enable = mkEnableOption "gitsigns";
+    codeActions = mkEnableOption "gitsigns codeactions through null-ls";
   };
 
-  config = mkIf cfg.enable (mkMerge [
-    (mkIf cfg.gitsigns.enable (mkMerge [
+  config = mkMerge [
+    (mkIf cfg.enable (mkMerge [
       {
         vim.startPlugins = ["gitsigns-nvim"];
-
         vim.luaConfigRC.gitsigns =
           nvim.dag.entryAnywhere
           /*
@@ -56,7 +50,6 @@ in {
               },
               on_attach = function(bufnr)
                 local gs = package.loaded.gitsigns
-
                 local function map(mode, l, r, opts)
                   opts = opts or {}
                   opts.buffer = bufnr
@@ -73,7 +66,7 @@ in {
           '';
       }
 
-      (mkIf cfg.gitsigns.codeActions {
+      (mkIf cfg.codeActions {
         vim.lsp.null-ls.enable = true;
         vim.lsp.null-ls.sources.gitsigns-ca = ''
           table.insert(
@@ -83,5 +76,5 @@ in {
         '';
       })
     ]))
-  ]);
+  ];
 }
