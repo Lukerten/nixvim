@@ -16,7 +16,7 @@ in {
       "undotree"
     ];
 
-    vim.luaConfigRC.sql =
+    vim.luaConfigRC.undo =
       nvim.dag.entryAnywhere
       /*
       lua

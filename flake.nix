@@ -195,10 +195,6 @@
       url = "github:folke/noice.nvim";
       flake = false;
     };
-    plugins-nui = {
-      url = "github:MunifTanjim/nui.nvim";
-      flake = false;
-    };
     plugins-notify = {
       url = "github:rcarriga/nvim-notify";
       flake = false;
@@ -239,6 +235,10 @@
       url = "github:moll/vim-bbye";
       flake = false;
     };
+    plugins-remote-nvim = {
+      url = "github:amitds1997/remote-nvim.nvim";
+      flake = false;
+    };
 
     # Key binding help
     plugins-which-key = {
@@ -247,6 +247,10 @@
     };
     plugins-plenary-nvim = {
       url = "github:nvim-lua/plenary.nvim";
+      flake = false;
+    };
+    plugins-nui = {
+      url = "github:MunifTanjim/nui.nvim";
       flake = false;
     };
     plugins-nvim-web-devicons = {
@@ -294,13 +298,6 @@
           trouble.enable = true;
         };
 
-        # Git
-        # vim.git = {
-        #   gitsigns.enable = true;
-        #   gitsigns.codeActions = true;
-        #   lazygit.enable = true;
-        # };
-
         # Languages
         vim.languages = {
           enableLSP = true;
@@ -334,7 +331,6 @@
             crates.enable = true;
           };
         };
-
         vim.utils.enable = true;
         vim.visual.enable = true;
       };

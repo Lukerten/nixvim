@@ -16,7 +16,7 @@ in {
       "obsidian"
     ];
 
-    vim.luaConfigRC.sql =
+    vim.luaConfigRC.obsidian =
       nvim.dag.entryAnywhere
       /*
       lua

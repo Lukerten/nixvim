@@ -16,7 +16,7 @@ in {
       "kommentary"
     ];
 
-    vim.luaConfigRC.sql =
+    vim.luaConfigRC.kommentary =
       nvim.dag.entryAnywhere
       /*
       lua

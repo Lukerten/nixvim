@@ -13,6 +13,7 @@ in {
     ./kommentary.nix
     ./lazygit.nix
     ./obsidian.nix
+    ./remote.nix
     ./telescope.nix
     ./undo.nix
     ./vimwiki.nix
@@ -27,6 +28,7 @@ in {
     kommentary.enable = mkDefault true;
     lazygit.enable = mkDefault true;
     obsidian.enable = mkDefault true;
+    remote.enable = mkDefault true;
     telescope.enable = mkDefault true;
     undo.enable =  mkDefault true;
     vimwiki.enable =  mkDefault true;

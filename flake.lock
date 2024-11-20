@@ -762,6 +762,22 @@
         "type": "github"
       }
     },
+    "plugins-remote-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722779389,
+        "narHash": "sha256-8gKQ7DwubWKfoXY4HDvPeggV+kxhlpz3yBmG9+SZ8AI=",
+        "owner": "amitds1997",
+        "repo": "remote-nvim.nvim",
+        "rev": "ffbf91f6132289a8c43162aba12c7365c28d601c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "amitds1997",
+        "repo": "remote-nvim.nvim",
+        "type": "github"
+      }
+    },
     "plugins-rust-tools": {
       "flake": false,
       "locked": {
@@ -987,6 +1003,7 @@
         "plugins-octo-nvim": "plugins-octo-nvim",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
         "plugins-ranger": "plugins-ranger",
+        "plugins-remote-nvim": "plugins-remote-nvim",
         "plugins-rust-tools": "plugins-rust-tools",
         "plugins-sqls-nvim": "plugins-sqls-nvim",
         "plugins-telescope": "plugins-telescope",

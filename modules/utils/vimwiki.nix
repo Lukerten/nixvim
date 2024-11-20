@@ -16,7 +16,7 @@ in {
       "vimwiki"
     ];
 
-    vim.luaConfigRC.sql =
+    vim.luaConfigRC.vimwiki =
       nvim.dag.entryAnywhere
       /*
       lua
