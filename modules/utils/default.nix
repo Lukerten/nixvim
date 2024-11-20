@@ -9,10 +9,10 @@ with builtins; let
 in {
   imports = [
     ./copilot.nix
+    ./debug.nix
     ./kommentary.nix
     ./lazygit.nix
     ./obsidian.nix
-    ./project.nix
     ./telescope.nix
     ./undo.nix
     ./vimwiki.nix
@@ -27,10 +27,13 @@ in {
     kommentary.enable = mkDefault true;
     lazygit.enable = mkDefault true;
     obsidian.enable = mkDefault true;
-    project.enable = mkDefault false;
     telescope.enable = mkDefault true;
     undo.enable =  mkDefault true;
     vimwiki.enable =  mkDefault true;
     whichKey.enable = mkDefault true;
+    debug = {
+      virtualText.enable = mkDefault true;
+      ui.enable = mkDefault true;
+    };
   };
 }

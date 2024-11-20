@@ -5,9 +5,9 @@
 }:
 with lib;
 with builtins; let
-  cfg = config.vim.debug;
+  cfg = config.vim.utils.debug;
 in {
-  options.vim.debug = {
+  options.vim.utils.debug = {
     enable = mkEnableOption "DAP debugger, also enabled automatically through language options";
 
     ui = {

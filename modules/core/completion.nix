@@ -6,7 +6,7 @@
 with lib;
 with builtins; let
   cfg = config.vim.autocomplete;
-  debugEnabled = config.vim.debug.enable;
+  debugEnabled = config.vim.utils.debug.enable;
 
   builtSources =
     concatMapStringsSep

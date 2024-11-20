@@ -746,22 +746,6 @@
         "type": "github"
       }
     },
-    "plugins-project": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1730653508,
-        "narHash": "sha256-d4tnzKZzCa6IrWdxrJ7ZaDZYSjQe9/xnMUBe2odDQIk=",
-        "owner": "Gako358",
-        "repo": "neovim-project",
-        "rev": "b035d547f33091144a52a39555e2691905bfb9aa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Gako358",
-        "repo": "neovim-project",
-        "type": "github"
-      }
-    },
     "plugins-ranger": {
       "flake": false,
       "locked": {
@@ -791,22 +775,6 @@
       "original": {
         "owner": "simrat39",
         "repo": "rust-tools.nvim",
-        "type": "github"
-      }
-    },
-    "plugins-session": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1728423652,
-        "narHash": "sha256-W9jtfVXHC8MQJwdbxakNqhd+xh/auQb3U09XKdN2Wzw=",
-        "owner": "Shatur",
-        "repo": "neovim-session-manager",
-        "rev": "ce43f2eb2a52492157d7742e5f684b9a42bb3e5c",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Shatur",
-        "repo": "neovim-session-manager",
         "type": "github"
       }
     },
@@ -1018,10 +986,8 @@
         "plugins-obsidian": "plugins-obsidian",
         "plugins-octo-nvim": "plugins-octo-nvim",
         "plugins-plenary-nvim": "plugins-plenary-nvim",
-        "plugins-project": "plugins-project",
         "plugins-ranger": "plugins-ranger",
         "plugins-rust-tools": "plugins-rust-tools",
-        "plugins-session": "plugins-session",
         "plugins-sqls-nvim": "plugins-sqls-nvim",
         "plugins-telescope": "plugins-telescope",
         "plugins-telescope-project": "plugins-telescope-project",

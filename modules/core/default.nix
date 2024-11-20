@@ -20,6 +20,14 @@ with builtins; let
       }
       // it);
 in {
+  imports = [
+    ./basic.nix
+    ./build.nix
+    ./completion.nix
+    ./snippets.nix
+    ./treesitter.nix
+  ];
+
   options.vim = {
     configRC = mkOption {
       description = "vimrc contents";

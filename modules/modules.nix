@@ -4,15 +4,9 @@
   check ? true,
 }: let
   modules = [
-    ./basic
-    ./build
-    ./completion
     ./core
-    ./debug
     ./languages
     ./lsp
-    ./snippets
-    ./treesitter
     ./utils
     ./visual
   ];

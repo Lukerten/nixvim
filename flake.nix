@@ -90,16 +90,6 @@
       flake = false;
     };
 
-    # Projects
-    plugins-project = {
-      url = "github:Gako358/neovim-project";
-      flake = false;
-    };
-    plugins-session = {
-      url = "github:Shatur/neovim-session-manager";
-      flake = false;
-    };
-
     # Autocompletes
     plugins-nvim-cmp = {
       url = "github:hrsh7th/nvim-cmp";
@@ -343,12 +333,6 @@
             enable = true;
             crates.enable = true;
           };
-        };
-
-        # Debugging
-        vim.debug = {
-          virtualText.enable = true;
-          ui.enable = true;
         };
 
         vim.utils.enable = true;

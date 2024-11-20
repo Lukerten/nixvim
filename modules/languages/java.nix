@@ -249,7 +249,7 @@ in {
     })
 
     (mkIf cfg.debug.enable {
-      vim.debug.enable = true;
+      vim.utils.debug.enable = true;
     })
   ]);
 }
