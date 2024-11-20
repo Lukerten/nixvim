@@ -27,7 +27,7 @@ in {
     kommentary.enable = mkDefault true;
     lazygit.enable = mkDefault true;
     obsidian.enable = mkDefault true;
-    project.enable = mkDefault true;
+    project.enable = mkDefault false;
     telescope.enable = mkDefault true;
     undo.enable =  mkDefault true;
     vimwiki.enable =  mkDefault true;

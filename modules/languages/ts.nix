@@ -17,7 +17,7 @@ with builtins; let
         lua
         */
         ''
-          lspconfig.tsserver.setup {
+          lspconfig.ts_ls.setup {
             capabilities = capabilities;
             on_attach = default_on_attach,
             cmd = { "${cfg.lsp.package}/bin/typescript-language-server", "--stdio" },
