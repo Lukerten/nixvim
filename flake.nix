@@ -249,6 +249,18 @@
       url = "github:moll/vim-bbye";
       flake = false;
     };
+    plugins-ufo = {
+      url = "github:kevinhwang91/nvim-ufo";
+      flake = false;
+    };
+    plugins-async = {
+      url = "github:kevinhwang91/promise-async";
+      flake = false;
+    };
+    plugins-statuscolumn = {
+      url = "github:luukvbaal/statuscol.nvim";
+      flake = false;
+    };
 
     # Key binding help
     plugins-which-key = {

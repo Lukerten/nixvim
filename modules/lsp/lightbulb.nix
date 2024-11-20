@@ -27,7 +27,15 @@ in {
       */
       ''
         -- Enable trouble diagnostics viewer
-        require'nvim-lightbulb'.setup()
+        local opts = {
+          sign = {
+            enabled = true,
+            text = "",
+            lens_text = "",
+            hl = "LightBulbSign",
+          },
+        }
+        require'nvim-lightbulb'.setup(opts)
       '';
   };
 }

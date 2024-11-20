@@ -74,6 +74,22 @@
         "type": "github"
       }
     },
+    "plugins-async": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722813441,
+        "narHash": "sha256-9eM66brPjiFlY64vmBetRYrKnpDyN7+/URMm4GsGimA=",
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
+        "rev": "119e8961014c9bfaf1487bf3c2a393d254f337e2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "promise-async",
+        "type": "github"
+      }
+    },
     "plugins-bbye": {
       "flake": false,
       "locked": {
@@ -826,6 +842,22 @@
         "type": "github"
       }
     },
+    "plugins-statuscolumn": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731016911,
+        "narHash": "sha256-nNw1zx80+cASWUovQ13FEDLPl7ipcilY3m4ISevrNgM=",
+        "owner": "luukvbaal",
+        "repo": "statuscol.nvim",
+        "rev": "8822f76e105549620ef9c0d96e7b95aedf14c490",
+        "type": "github"
+      },
+      "original": {
+        "owner": "luukvbaal",
+        "repo": "statuscol.nvim",
+        "type": "github"
+      }
+    },
     "plugins-telescope": {
       "flake": false,
       "locked": {
@@ -906,6 +938,22 @@
         "type": "github"
       }
     },
+    "plugins-ufo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731301886,
+        "narHash": "sha256-yHLQ3J91phhWqhxn+JiRm8gUErU1roi8oj3wrY9jEP0=",
+        "owner": "kevinhwang91",
+        "repo": "nvim-ufo",
+        "rev": "c070ee849bfedb2ed778f60419a1eae8c8544be8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "kevinhwang91",
+        "repo": "nvim-ufo",
+        "type": "github"
+      }
+    },
     "plugins-undotree": {
       "flake": false,
       "locked": {
@@ -976,6 +1024,7 @@
         "nil": "nil",
         "nixpkgs": "nixpkgs",
         "plugins-alpha-nvim": "plugins-alpha-nvim",
+        "plugins-async": "plugins-async",
         "plugins-bbye": "plugins-bbye",
         "plugins-bufferline": "plugins-bufferline",
         "plugins-cmp-buffer": "plugins-cmp-buffer",
@@ -1023,11 +1072,13 @@
         "plugins-rust-tools": "plugins-rust-tools",
         "plugins-session": "plugins-session",
         "plugins-sqls-nvim": "plugins-sqls-nvim",
+        "plugins-statuscolumn": "plugins-statuscolumn",
         "plugins-telescope": "plugins-telescope",
         "plugins-telescope-project": "plugins-telescope-project",
         "plugins-theme": "plugins-theme",
         "plugins-todo": "plugins-todo",
         "plugins-trouble": "plugins-trouble",
+        "plugins-ufo": "plugins-ufo",
         "plugins-undotree": "plugins-undotree",
         "plugins-vim-vsnip": "plugins-vim-vsnip",
         "plugins-vimwiki": "plugins-vimwiki",

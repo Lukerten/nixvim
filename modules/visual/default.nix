@@ -20,6 +20,7 @@ in {
     ./nwd.nix
     ./theme.nix
     ./todo.nix
+    ./ufo.nix
   ];
 
   options.vim.visual = {
@@ -40,5 +41,6 @@ in {
     nvimWebDevicons.enable = mkDefault true;
     todo.enable = mkDefault true;
     theme.enable = mkDefault true;
+    ufo.enable = mkDefault true;
   };
 }
