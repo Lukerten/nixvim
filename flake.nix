@@ -285,7 +285,6 @@
           sql.enable = true;
           tailwind.enable = true;
           ts.enable = true;
-          vue.enable = true;
           xml.enable = true;
         };
         vim.lsp = {

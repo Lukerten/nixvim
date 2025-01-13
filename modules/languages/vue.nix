@@ -8,20 +8,60 @@ with lib;
 with builtins; let
   cfg = config.vim.languages.vue;
 
-  defaultServer = "volar";
+  defaultServer = "vuels";
   servers = {
-    volar = {
-      package = pkgs.nodePackages.volar;
+    vuels = {
+      package = pkgs.nodePackages.vls;
       lspConfig =
         /*
         lua
         */
         ''
-          lspconfig.volar.setup {
-            capabilities = capabilities;
-            on_attach = default_on_attach,
-            cmd = { "${cfg.lsp.package}/bin/vue-language-server", "--stdio" },
-            filetypes = {"typescript", "typescriptreact", "javascript", "javascriptreact", "vue", "json"}
+          local util = require('lspconfig.util')
+          lspconfig.vuels.setup {
+            capabilities = capabilities,
+            on_attach = attach_keymaps,
+            filetypes = { 'vue' },
+            root_dir = util.root_pattern('package.json', 'vue.config.js'),
+            cmd = { "${pkgs.nodePackages.vls}/bin/vls", "--stdio" },
+            init_options = {
+              config = {
+                vetur = {
+                  useWorkspaceDependencies = false,
+                  validation = {
+                    template = true,
+                    style = true,
+                    script = true,
+                  },
+                  completion = {
+                    autoImport = false,
+                    useScaffoldSnippets = false,
+                    tagCasing = 'kebab',
+                  },
+                  format = {
+                    defaultFormatter = {
+                      js = 'none',
+                      ts = 'none',
+                    },
+                    defaultFormatterOptions = {},
+                    scriptInitialIndent = false,
+                    styleInitialIndent = false,
+                  },
+                },
+                css = {},
+                html = {
+                  suggest = {},
+                },
+                javascript = {
+                  format = {},
+                },
+                typescript = {
+                  format = {},
+                },
+                emmet = {},
+                stylusSupremacy = {},
+              },
+            },
           }
         '';
     };

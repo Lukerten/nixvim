@@ -24,7 +24,6 @@ in {
     ./sql.nix
     ./tailwind.nix
     ./ts.nix
-    ./vue.nix
     ./xml.nix
   ];
 
