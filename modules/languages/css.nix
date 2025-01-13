@@ -11,7 +11,7 @@ with builtins; let
   defaultServer = "cssls";
   servers = {
     cssls = {
-      package = pkgs.nodePackages.vscode-css-languageserver-bin;
+      package = pkgs.nodePackages.vscode-langservers-extracted;
       lspConfig =
         /*
         lua
@@ -19,7 +19,7 @@ with builtins; let
         ''
           lspconfig.cssls.setup{
             on_attach = default_on_attach,
-            cmd = {'${cfg.lsp.package}/bin/vscode-css-languageserver-bin'};
+            cmd = {'${cfg.lsp.package}/bin/vscode-langservers-extracted'};
             filetypes = {'css', 'scss', 'less'};
             settings = {
               css = {
