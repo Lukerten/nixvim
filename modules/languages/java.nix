@@ -13,9 +13,7 @@ with builtins; let
     jdtls = {
       package = pkgs.jdt-language-server;
       lspConfig =
-        /*
-        lua
-        */
+        # lua
         ''
           local home = os.getenv("HOME")
           local jdtls = require("jdtls")
@@ -158,19 +156,21 @@ with builtins; let
   formats = {
     google-java-format = {
       package = pkgs.google-java-format;
-      nullConfig = ''
-        table.insert(
-          ls_sources,
-          null_ls.builtins.formatting.google_java_format.with({
-            command = "${cfg.format.package}/bin/google-java-format";
-            args = {
-              "--aosp",
-              "--skip-sorting-imports",
-              "--skip-removing-unused-imports",
-            };
-          })
-        )
-      '';
+      nullConfig =
+        # lua
+        ''
+          table.insert(
+            ls_sources,
+            null_ls.builtins.formatting.google_java_format.with({
+              command = "${cfg.format.package}/bin/google-java-format";
+              args = {
+                "--aosp",
+                "--skip-sorting-imports",
+                "--skip-removing-unused-imports",
+              };
+            })
+          )
+        '';
     };
   };
 in {
@@ -231,25 +231,25 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.treesitter.enable {
-      vim.treesitter.enable = true;
-      vim.treesitter.grammars = [cfg.treesitter.package];
+      treesitter.enable = true;
+      treesitter.grammars = [cfg.treesitter.package];
     })
 
     (mkIf cfg.lsp.enable {
-      vim.startPlugins = ["nvim-jdtls"];
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.java-lsp = servers.${cfg.lsp.server}.lspConfig;
+      startPlugins = ["nvim-jdtls"];
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.java-lsp = servers.${cfg.lsp.server}.lspConfig;
     })
 
     (mkIf cfg.format.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources.java-format = formats.${cfg.format.type}.nullConfig;
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources.java-format = formats.${cfg.format.type}.nullConfig;
     })
 
     (mkIf cfg.debug.enable {
-      vim.debug.enable = true;
+      debug.enable = true;
     })
   ]);
 }

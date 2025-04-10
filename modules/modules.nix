@@ -10,6 +10,7 @@
     ./completion.nix
     ./core.nix
     ./debug.nix
+    ./filetree.nix
     ./git.nix
     ./keys.nix
     ./picker.nix
@@ -19,7 +20,7 @@
     ./visual.nix
   ];
 
-  pkgsModule = {config, ...}: {
+  pkgsModule = {
     config = {
       _module.args.baseModules = modules;
       _module.args.pkgsPath = lib.mkDefault pkgs.path;

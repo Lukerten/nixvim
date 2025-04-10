@@ -137,27 +137,27 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.treesitter.enable {
-      vim.treesitter.enable = true;
-      vim.treesitter.grammars = [cfg.treesitter.package];
+      treesitter.enable = true;
+      treesitter.grammars = [cfg.treesitter.package];
     })
 
     (mkIf cfg.lsp.enable {
-      vim.startPlugins = ["sqls-nvim"];
+      startPlugins = ["sqls-nvim"];
 
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.sql-lsp = servers.${cfg.lsp.server}.lspConfig;
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.sql-lsp = servers.${cfg.lsp.server}.lspConfig;
     })
 
     (mkIf cfg.format.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources."sql-format" = formats.${cfg.format.type}.nullConfig;
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources."sql-format" = formats.${cfg.format.type}.nullConfig;
     })
 
     (mkIf cfg.extraDiagnostics.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
         lang = "sql";
         config = cfg.extraDiagnostics.types;
         inherit diagnostics;

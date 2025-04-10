@@ -15,11 +15,9 @@ with builtins; let
   servers = {
     rnix = {
       package = ["rnix-lsp"];
-      internalFormatter = cfg.format.type == "nixpkgs-fmt";
+      internalFormatter = cfg.format.type == "alejandra";
       lspConfig =
-        /*
-        lua
-        */
+        # lua
         ''
           lspconfig.rnix.setup{
             capabilities = capabilities,
@@ -37,9 +35,7 @@ with builtins; let
       package = ["nil"];
       internalFormatter = true;
       lspConfig =
-        /*
-        lua
-        */
+        # lua
         ''
           lspconfig.nil_ls.setup{
             capabilities = capabilities,
@@ -72,7 +68,7 @@ with builtins; let
     };
   };
 
-  defaultFormat = "nixpkgs-fmt";
+  defaultFormat = "alejandra";
   formats = {
     alejandra = {
       package = ["alejandra"];
@@ -181,31 +177,31 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     {
-      vim.configRC.nix = nvim.dag.entryAnywhere ''
+      configRC.nix = nvim.dag.entryAnywhere ''
         autocmd filetype nix setlocal tabstop=2 shiftwidth=2 softtabstop=2
       '';
     }
 
     (mkIf cfg.treesitter.enable {
-      vim.treesitter.enable = true;
-      vim.treesitter.grammars = [cfg.treesitter.package];
+      treesitter.enable = true;
+      treesitter.grammars = [cfg.treesitter.package];
     })
 
     (mkIf cfg.lsp.enable {
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.nix-lsp = servers.${cfg.lsp.server}.lspConfig;
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.nix-lsp = servers.${cfg.lsp.server}.lspConfig;
     })
 
     (mkIf (cfg.format.enable && !servers.${cfg.lsp.server}.internalFormatter) {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources.nix-format = formats.${cfg.format.type}.nullConfig;
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources.nix-format = formats.${cfg.format.type}.nullConfig;
     })
 
     (mkIf cfg.extraDiagnostics.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
         lang = "nix";
         config = cfg.extraDiagnostics.types;
         inherit diagnostics;

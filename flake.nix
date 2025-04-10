@@ -145,6 +145,10 @@
       url = "github:ellisonleao/glow.nvim";
       flake = false;
     };
+    plugins-markdown-preview = {
+      url = "github:iamcco/markdown-preview.nvim";
+      flake = false;
+    };
 
     # Git
     plugins-gitsigns-nvim = {
@@ -199,6 +203,14 @@
       url = "github:folke/todo-comments.nvim";
       flake = false;
     };
+    plugins-nvim-tree = {
+      url = "github:nvim-tree/nvim-tree.lua";
+      flake = false;
+    };
+    plugins-alpha = {
+      url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
 
     #Orgmode
     plugins-orgmode = {
@@ -249,88 +261,92 @@
       config = {
         build.viAlias = false;
         build.vimAlias = true;
-        vim.autocomplete = {
-          enable = true;
-          cmp = {
+        vim = {
+          autocomplete = {
             enable = true;
-            type = "nvim-cmp";
+            cmp = {
+              enable = true;
+              type = "nvim-cmp";
+            };
+            copilot.enable = true;
+            snippets.enable = true;
           };
-          copilot.enable = true;
-          snippets.enable = true;
-        };
-        vim.fzf.enable = true;
-        vim.git.enable = true;
-        vim.keys = {
-          enable = true;
-          whichKey.enable = true;
-        };
-        vim.languages = {
-          enableLSP = true;
-          enableDebug = true;
-          enableFormat = true;
-          enableTreesitter = true;
-          enableExtraDiagnostics = true;
+          fzf.enable = true;
+          git.enable = true;
+          filetree.enable = true;
+          keys = {
+            enable = true;
+            whichKey.enable = true;
+          };
+          languages = {
+            enableLSP = true;
+            enableDebug = true;
+            enableFormat = true;
+            enableTreesitter = true;
+            enableExtraDiagnostics = true;
 
-          clang.enable = true;
-          css.enable = true;
-          haskell.enable = true;
-          html.enable = true;
-          java.enable = true;
-          kotlin.enable = true;
-          lua.enable = true;
-          markdown.enable = true;
-          nix.enable = true;
-          org.enable = true;
-          python.enable = true;
-          rust = {
-            enable = true;
-            crates.enable = true;
+            clang.enable = true;
+            css.enable = true;
+            haskell.enable = true;
+            html.enable = true;
+            java.enable = true;
+            kotlin.enable = true;
+            lua.enable = true;
+            markdown.enable = true;
+            nix.enable = true;
+            org.enable = true;
+            python.enable = true;
+            rust = {
+              enable = true;
+              crates.enable = true;
+            };
+            scala.enable = true;
+            bash.enable = true;
+            sql.enable = true;
+            tailwind.enable = true;
+            ts.enable = true;
+            vue.enable = true;
+            xml.enable = true;
           };
-          scala.enable = true;
-          bash.enable = true;
-          sql.enable = true;
-          tailwind.enable = true;
-          ts.enable = true;
-          vue.enable = true;
-          xml.enable = true;
-        };
-        vim.lsp = {
-          formatOnSave = false;
-          fidget.enable = true;
-          lightbulb.enable = true;
-          lspkind.enable = true;
-          lspSignature.enable = true;
-          trouble.enable = true;
-        };
-        vim.debug = {
-          virtualText.enable = true;
-          ui.enable = true;
-        };
-        vim.theme.enable = true;
-        vim.visuals = {
-          enable = true;
-          autopairs.enable = true;
-          indentBlankline = {
-            enable = true;
+          lsp = {
+            formatOnSave = false;
+            fidget.enable = true;
+            lightbulb.enable = true;
+            lspkind.enable = true;
+            lspSignature.enable = true;
+            trouble.enable = true;
           };
-          leap.enable = true;
-          lualine = {
-            enable = true;
-            theme = "auto";
+          debug = {
+            virtualText.enable = true;
+            ui.enable = true;
           };
-          noice = {
+          theme.enable = true;
+          visuals = {
             enable = true;
+            autopairs.enable = true;
+            alpha.enable = true;
+            indentBlankline = {
+              enable = true;
+            };
+            leap.enable = true;
+            lualine = {
+              enable = true;
+              theme = "auto";
+            };
+            noice = {
+              enable = true;
+            };
+            nvimWebDevicons.enable = true;
+            ranger.enable = true;
+            todo.enable = true;
           };
-          nvimWebDevicons.enable = true;
-          ranger.enable = true;
-          todo.enable = true;
-        };
-        vim.terminal = {
-          enable = true;
-          simple.enable = true;
-          float.enable = true;
-          project.enable = true;
-          new_tab.enable = true;
+          terminal = {
+            enable = true;
+            simple.enable = true;
+            float.enable = true;
+            project.enable = true;
+            new_tab.enable = true;
+          };
         };
       };
     };
@@ -341,7 +357,7 @@
         inherit neovimConfiguration;
       };
 
-      overlays.default = final: prev: {
+      overlays.default = _: prev: {
         inherit neovimConfiguration;
         neovim = buildPkg prev [mainConfig];
       };
@@ -350,7 +366,7 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [
-          (final: prev: {
+          (_: _: {
             rnix-lsp = inputs.rnix-lsp.defaultPackage.${system};
             nil = inputs.nil.packages.${system}.default;
           })

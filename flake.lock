@@ -58,6 +58,22 @@
         "type": "github"
       }
     },
+    "plugins-alpha": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1731604504,
+        "narHash": "sha256-sNi5qarejYqM4/J7lBZI3gjVLxer5FBPq8K6qjqcMjA=",
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "rev": "de72250e054e5e691b9736ee30db72c65d560771",
+        "type": "github"
+      },
+      "original": {
+        "owner": "goolord",
+        "repo": "alpha-nvim",
+        "type": "github"
+      }
+    },
     "plugins-cmp-buffer": {
       "flake": false,
       "locked": {
@@ -394,6 +410,22 @@
         "type": "github"
       }
     },
+    "plugins-markdown-preview": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1697511247,
+        "narHash": "sha256-TBXdG/Ih5DusAYZJyn37zVqHcMD85VkjrCoLyTo/KBg=",
+        "owner": "iamcco",
+        "repo": "markdown-preview.nvim",
+        "rev": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee",
+        "type": "github"
+      },
+      "original": {
+        "owner": "iamcco",
+        "repo": "markdown-preview.nvim",
+        "type": "github"
+      }
+    },
     "plugins-noice": {
       "flake": false,
       "locked": {
@@ -618,6 +650,22 @@
         "type": "github"
       }
     },
+    "plugins-nvim-tree": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1743748178,
+        "narHash": "sha256-az/LmM7neWWUtoA3bfp8e7UpXS2c9BVOroifLSWtp5s=",
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "rev": "c3c193594213c5e2f89ec5d7729cad805f76b256",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nvim-tree",
+        "repo": "nvim-tree.lua",
+        "type": "github"
+      }
+    },
     "plugins-nvim-web-devicons": {
       "flake": false,
       "locked": {
@@ -815,6 +863,7 @@
         "flake-utils": "flake-utils",
         "nil": "nil",
         "nixpkgs": "nixpkgs",
+        "plugins-alpha": "plugins-alpha",
         "plugins-cmp-buffer": "plugins-cmp-buffer",
         "plugins-cmp-dap": "plugins-cmp-dap",
         "plugins-cmp-nvim-lsp": "plugins-cmp-nvim-lsp",
@@ -836,6 +885,7 @@
         "plugins-lsp-signature": "plugins-lsp-signature",
         "plugins-lspkind": "plugins-lspkind",
         "plugins-lualine": "plugins-lualine",
+        "plugins-markdown-preview": "plugins-markdown-preview",
         "plugins-noice": "plugins-noice",
         "plugins-notify": "plugins-notify",
         "plugins-nui": "plugins-nui",
@@ -850,6 +900,7 @@
         "plugins-nvim-lspconfig": "plugins-nvim-lspconfig",
         "plugins-nvim-metals": "plugins-nvim-metals",
         "plugins-nvim-nio": "plugins-nvim-nio",
+        "plugins-nvim-tree": "plugins-nvim-tree",
         "plugins-nvim-web-devicons": "plugins-nvim-web-devicons",
         "plugins-org-roam": "plugins-org-roam",
         "plugins-orgmode": "plugins-orgmode",

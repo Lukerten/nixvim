@@ -11,16 +11,16 @@ in {
     enable = mkEnableOption "Git support";
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     # Base git plugins and null-ls
     {
-      vim.startPlugins = [
+      startPlugins = [
         "lazygit"
         "gitsigns-nvim"
       ];
 
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources.gitsigns-ca = ''
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources.gitsigns-ca = ''
         table.insert(
           ls_sources,
           null_ls.builtins.code_actions.gitsigns
@@ -28,16 +28,9 @@ in {
       '';
     }
 
-    # LazyGit configuration
-    {
-      vim.luaConfigRC.lazygit = nvim.dag.entryAnywhere ''
-        vim.api.nvim_set_keymap('n', '<leader>/', ':LazyGit<CR>', { silent = true })
-      '';
-    }
-
     # Gitsigns configuration
     {
-      vim.luaConfigRC.gitsigns =
+      luaConfigRC.gitsigns =
         nvim.dag.entryAnywhere
         /*
         lua

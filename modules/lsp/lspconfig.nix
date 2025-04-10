@@ -17,13 +17,15 @@ in {
     };
   };
 
-  config = mkIf cfg.lspconfig.enable (mkMerge [
+  config.vim = mkIf cfg.lspconfig.enable (mkMerge [
     {
-      vim.lsp.enable = true;
+      lsp.enable = true;
 
-      vim.startPlugins = ["nvim-lspconfig"];
+      startPlugins = ["nvim-lspconfig"];
 
-      vim.luaConfigRC.lspconfig = nvim.dag.entryAfter ["lsp-setup"] ''
+      luaConfigRC.lspconfig = nvim.dag.entryAfter ["lsp-setup"]
+      # lua
+      ''
         local lspconfig = require('lspconfig')
         lspconfig.lua_ls.setup {
           on_init = function(client)
@@ -50,7 +52,7 @@ in {
       '';
     }
     {
-      vim.luaConfigRC = mapAttrs (_: v: (nvim.dag.entryAfter ["lspconfig"] v)) cfg.lspconfig.sources;
+      luaConfigRC = mapAttrs (_: v: (nvim.dag.entryAfter ["lspconfig"] v)) cfg.lspconfig.sources;
     }
   ]);
 }

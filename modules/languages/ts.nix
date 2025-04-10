@@ -129,25 +129,25 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.treesitter.enable {
-      vim.treesitter.enable = true;
-      vim.treesitter.grammars = [cfg.treesitter.tsPackage cfg.treesitter.jsPackage];
+      treesitter.enable = true;
+      treesitter.grammars = [cfg.treesitter.tsPackage cfg.treesitter.jsPackage];
     })
 
     (mkIf cfg.lsp.enable {
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.ts-lsp = servers.${cfg.lsp.server}.lspConfig;
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.ts-lsp = servers.${cfg.lsp.server}.lspConfig;
     })
 
     (mkIf cfg.format.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources.ts-format = formats.${cfg.format.type}.nullConfig;
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources.ts-format = formats.${cfg.format.type}.nullConfig;
     })
 
     (mkIf cfg.extraDiagnostics.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources = lib.nvim.languages.diagnosticsToLua {
         lang = "ts";
         config = cfg.extraDiagnostics.types;
         inherit diagnostics;

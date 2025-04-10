@@ -49,10 +49,10 @@ in {
       };
     };
   };
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.lsp.enable {
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.tailwind-lsp = servers.${cfg.lsp.server}.lspConfig;
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.tailwind-lsp = servers.${cfg.lsp.server}.lspConfig;
     })
   ]);
 }

@@ -82,9 +82,9 @@ in
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.cmp.enable {
-      vim.startPlugins =
+      startPlugins =
         [
           "nvim-cmp"
           "cmp-nvim-lsp-signature-help"
@@ -95,7 +95,7 @@ in
         ]
         ++ optional debugEnabled "cmp-dap";
 
-      vim.autocomplete.cmp.sources = {
+      autocomplete.cmp.sources = {
         "nvim-cmp" = null;
         "copilot" = null;
         "nvim_lsp_document_symbol" = "[LSP]";
@@ -107,10 +107,8 @@ in
         "orgmode" = "[Orgmode]";
       };
 
-      vim.luaConfigRC.completion = mkIf (cfg.cmp.type == "nvim-cmp") (dagPlacement
-        /*
-        lua
-        */
+      luaConfigRC.completion = mkIf (cfg.cmp.type == "nvim-cmp") (dagPlacement
+        # lua
         ''
           local nvim_cmp_menu_map = function(entry, vim_item)
             -- name for each source
@@ -203,15 +201,13 @@ in
         '');
     })
     (mkIf cfg.copilot.enable {
-      vim.startPlugins = [
+      startPlugins = [
         "copilot"
         "copilot-chat"
       ];
-      vim.luaConfigRC.copilot =
+      luaConfigRC.copilot =
         nvim.dag.entryAnywhere
-          /*
-        lua
-          */
+        # lua
           ''
             require("copilot").setup({
               panel = { enabled = true },
@@ -258,7 +254,7 @@ in
           '';
     })
     (mkIf cfg.snippets.enable {
-      vim.startPlugins = [ "vim-vsnip" ];
+      startPlugins = [ "vim-vsnip" ];
     })
   ]);
 }

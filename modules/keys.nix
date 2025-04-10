@@ -66,7 +66,7 @@ in {
 
           -- Leader commands
           { "<leader>s", group = "Search" },
-          { "<leader>sr", ":lua ReplaceWord()<CR>", desc = "Search and Replace with Input" },
+          { "<leader>sw", ":lua ReplaceWord()<CR>", desc = "Search and Replace with Input" },
           { "<leader>d", group = "Diagnostics" },
           { "<leader>dv", ":noh<CR>", desc = "Clear Search Highlight" },
           { "<leader>b", group = "Buffer" },

@@ -1,13 +1,13 @@
-{
-  config,
-  lib,
-  ...
+{ config
+, lib
+, ...
 }:
 with lib;
 with builtins; let
   cfg = config.vim.lsp;
   usingNvimCmp = config.vim.autocomplete.enable && config.vim.autocomplete.cmp.type == "nvim-cmp";
-in {
+in
+{
   imports = [
     ./fidget.nix
     ./lightbulb.nix
@@ -23,36 +23,51 @@ in {
     formatOnSave = mkEnableOption "format on save";
   };
 
-  config = mkIf cfg.enable {
-    vim.startPlugins = optional usingNvimCmp "cmp-nvim-lsp";
-    vim.autocomplete.cmp.sources = {"nvim_lsp" = "[LSP]";};
-    vim.luaConfigRC.lsp-setup =
+  config.vim = mkIf cfg.enable {
+    startPlugins = optional usingNvimCmp "cmp-nvim-lsp";
+    autocomplete.cmp.sources = { "nvim_lsp" = "[LSP]"; };
+    luaConfigRC.lsp-setup =
       /*
       lua
       */
       ''
         vim.g.formatsave = ${boolToString cfg.formatOnSave};
 
+        local lspconfig = require('lspconfig')
+        local util = require('lspconfig.util')
+        local async = require 'lspconfig.async'
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+        -- Default Keymap Options
         local attach_keymaps = function(client, bufnr)
-          local opts = { noremap=true, silent=true }
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>la', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'n', '<leader>lf', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
-          vim.api.nvim_buf_set_keymap(bufnr, 'v', '<leader>f', '<cmd>lua vim.lsp.buf.format()<CR>', opts)
+          vim.lsp.inlay_hint.enable(true)
+
+          -- Rename
+          vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename, {noremap = true, silent = true, desc = "Rename"}, bufnr)
+          vim.keymap.set("n", "grn", vim.lsp.buf.rename, {noremap = true, silent = true, desc = "Rename"}, bufnr)
+          -- Code Actions
+          vim.keymap.set("n", "<leader>a", vim.lsp.buf.code_action, {noremap = true, silent = true, desc = "Code Actions"}, bufnr)
+          vim.keymap.set("n", "gra", vim.lsp.buf.code_action, {noremap = true, silent = true, desc = "Code Actions"}, bufnr)
+          -- References
+          vim.keymap.set("n", "<leader>g", vim.lsp.buf.references, {noremap = true, silent = true, desc = "References"}, bufnr)
+          vim.keymap.set("n", "grr", vim.lsp.buf.references, {noremap = true, silent = true, desc = "References"}, bufnr)
+          -- Signature
+          vim.keymap.set("n", "<leader>s", vim.lsp.buf.signature_help, {noremap = true, silent = true, desc = "Signature Help"}, bufnr)
+          vim.keymap.set("n", "grs", vim.lsp.buf.signature_help, {noremap = true, silent = true, desc = "Signature Help"}, bufnr)
+          -- Hover
+          vim.keymap.set("n", "<leader>h", vim.lsp.buf.hover, {noremap = true, silent = true, desc = "Hover"}, bufnr)
+          vim.keymap.set("n", "grh", vim.lsp.buf.hover, {noremap = true, silent = true, desc = "Hover"}, bufnr)
+          -- Format
+          vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, {noremap = true, silent = true, desc = "Format"}, bufnr)
+          vim.keymap.set("n", "grf", vim.lsp.buf.format, {noremap = true, silent = true, desc = "Format"}, bufnr)
+          -- GoTo
+          vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {noremap = true, silent = true, desc = "Go To Definition"}, bufnr)
+          vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, {noremap = true, silent = true, desc = "Go To Declaration"}, bufnr)
+          vim.keymap.set("n", "<leader>gi", vim.lsp.buf.implementation, {noremap = true, silent = true, desc = "Go To Implementation"}, bufnr)
+          vim.keymap.set("n", "<leader>gt", vim.lsp.buf.type_definition, {noremap = true, silent = true, desc = "Go To Type Definition"}, bufnr)
+
+          -- Inlay Hints
+          vim.keymap.set("n", "<leader>i"  , function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled()) end, { desc = "Toggle inlay hint" })
         end
 
         -- Enable formatting

@@ -13,10 +13,12 @@ in {
     };
   };
 
-  config = mkIf (cfg.enable && cfg.trouble.enable) {
-    vim.startPlugins = ["trouble"];
+  config.vim = mkIf (cfg.enable && cfg.trouble.enable) {
+    startPlugins = ["trouble"];
 
-    vim.luaConfigRC.trouble-maps = nvim.dag.entryAnywhere ''
+    luaConfigRC.trouble-maps = nvim.dag.entryAnywhere
+    #lua
+    ''
       if ${boolToString config.vim.keys.whichKey.enable} then
         local wk = require("which-key")
         wk.add({
@@ -34,7 +36,7 @@ in {
       end
     '';
 
-    vim.luaConfigRC.trouble =
+    luaConfigRC.trouble =
       nvim.dag.entryAnywhere
       /*
       lua

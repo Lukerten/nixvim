@@ -85,14 +85,14 @@ in {
     };
   };
 
-  config = mkIf cfg.enable (mkMerge [
+  config.vim = mkIf cfg.enable (mkMerge [
     (mkIf cfg.crates.enable {
-      vim.lsp.null-ls.enable = mkIf cfg.crates.codeActions true;
+      lsp.null-ls.enable = mkIf cfg.crates.codeActions true;
 
-      vim.startPlugins = ["crates-nvim"];
+      startPlugins = ["crates-nvim"];
 
-      vim.autocomplete.cmp.sources = {"crates" = "[Crates]";};
-      vim.luaConfigRC.rust-crates = nvim.dag.entryAnywhere ''
+      autocomplete.cmp.sources = {"crates" = "[Crates]";};
+      luaConfigRC.rust-crates = nvim.dag.entryAnywhere ''
         require('crates').setup {
           null_ls = {
             enabled = ${boolToString cfg.crates.codeActions},
@@ -102,14 +102,14 @@ in {
       '';
     })
     (mkIf cfg.treesitter.enable {
-      vim.treesitter.enable = true;
-      vim.treesitter.grammars = [cfg.treesitter.package];
+      treesitter.enable = true;
+      treesitter.grammars = [cfg.treesitter.package];
     })
     (mkIf cfg.lsp.enable {
-      vim.startPlugins = ["rust-tools"];
+      startPlugins = ["rust-tools"];
 
-      vim.lsp.lspconfig.enable = true;
-      vim.lsp.lspconfig.sources.rust-lsp =
+      lsp.lspconfig.enable = true;
+      lsp.lspconfig.sources.rust-lsp =
         /*
         lua
         */
@@ -150,8 +150,8 @@ in {
         '';
     })
     (mkIf cfg.format.enable {
-      vim.lsp.null-ls.enable = true;
-      vim.lsp.null-ls.sources.rust-format = formats.${cfg.format.type}.nullConfig;
+      lsp.null-ls.enable = true;
+      lsp.null-ls.sources.rust-format = formats.${cfg.format.type}.nullConfig;
     })
   ]);
 }

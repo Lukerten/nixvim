@@ -249,6 +249,11 @@ in {
       ${optionalString (!cfg.wordWrap) ''
         set nowrap
       ''}
+      ${optionalString cfg.wordWrap ''
+        set linebreak
+        set breakindent
+        set nofoldenable
+      ''}
       ${optionalString cfg.hideSearchHighlight ''
         set nohlsearch
         set incsearch
