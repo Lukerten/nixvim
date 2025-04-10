@@ -11,7 +11,7 @@ with builtins; let
   defaultServer = "cssls";
   servers = {
     cssls = {
-      package = pkgs.nodePackages.vscode-css-languageserver-bin;
+      package = pkgs.nodePackages.vscode-langservers-extracted;
       lspConfig =
         /*
         lua

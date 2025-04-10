@@ -11,7 +11,7 @@ with builtins; let
   defaultServer = "volar";
   servers = {
     volar = {
-      package = pkgs.nodePackages.volar;
+      package = pkgs.vue-language-server;
       lspConfig =
         /*
         lua

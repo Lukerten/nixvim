@@ -87,43 +87,14 @@
     };
 
     # Autocompletes
-    plugins-nvim-cmp = {
-      url = "github:hrsh7th/nvim-cmp";
+    plugins-blink-cmp = {
+      url = "github:Saghen/blink.cmp";
       flake = false;
     };
-    plugins-cmp-buffer = {
-      url = "github:hrsh7th/cmp-buffer";
+    plugins-blink-cmp-copilot = {
+      url = "github:giuxtaposition/blink-cmp-copilot";
       flake = false;
     };
-    plugins-cmp-nvim-lsp = {
-      url = "github:hrsh7th/cmp-nvim-lsp";
-      flake = false;
-    };
-    plugins-cmp-vsnip = {
-      url = "github:hrsh7th/cmp-vsnip";
-      flake = false;
-    };
-    plugins-cmp-path = {
-      url = "github:hrsh7th/cmp-path";
-      flake = false;
-    };
-    plugins-cmp-treesitter = {
-      url = "github:ray-x/cmp-treesitter";
-      flake = false;
-    };
-    plugins-cmp-dap = {
-      url = "github:rcarriga/cmp-dap";
-      flake = false;
-    };
-    plugins-cmp-nvim-lsp-signature-help = {
-      url = "github:hrsh7th/cmp-nvim-lsp-signature-help";
-      flake = false;
-    };
-    plugins-cmp-nvim-lsp-document-symbol = {
-      url = "github:hrsh7th/cmp-nvim-lsp-document-symbol";
-      flake = false;
-    };
-
     # snippets
     plugins-vim-vsnip = {
       url = "github:hrsh7th/vim-vsnip";
