@@ -16,7 +16,7 @@ in {
 
     transparentBackground = mkOption {
       type = types.bool;
-      default = false;
+      default = true;
       description = "Set the background to transparent";
     };
 
