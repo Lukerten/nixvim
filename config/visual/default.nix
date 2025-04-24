@@ -8,6 +8,7 @@
     ./lualine.nix
     ./noice.nix
     ./notify.nix
+    ./nvim-tree.nix
     ./tiny-inline-diagnostics.nix
     ./which-key.nix
   ];

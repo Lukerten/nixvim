@@ -6,6 +6,7 @@
         "copilot.lua"
         "nvim-treesitter"
         "hmts.nvim"
+        "nvim-tree.lua"
       ];
     };
     byteCompileLua = rec {
