@@ -3,6 +3,7 @@
     ./bufferline.nix
     ./dashboard.nix
     ./gitsigns.nix
+    ./indent-blankline.nix
     ./which-key.nix
   ];
 
