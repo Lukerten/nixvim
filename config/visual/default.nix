@@ -1,5 +1,6 @@
 {
   imports = [
+    ./bufferline.nix
     ./dashboard.nix
     ./which-key.nix
   ];
