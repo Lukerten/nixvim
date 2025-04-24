@@ -7,6 +7,7 @@
   imports = [
     ./completion
     ./copilot
+    ./theme
     ./keymap.nix
     ./opts.nix
     ./performance.nix
