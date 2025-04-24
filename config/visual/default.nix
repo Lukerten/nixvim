@@ -2,6 +2,7 @@
   imports = [
     ./bufferline.nix
     ./dashboard.nix
+    ./gitsigns.nix
     ./which-key.nix
   ];
 
