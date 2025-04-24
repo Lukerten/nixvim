@@ -10,6 +10,7 @@
     ./noice.nix
     ./notify.nix
     ./nvim-tree.nix
+    ./snacks.nix
     ./tiny-inline-diagnostics.nix
     ./trouble.nix
     ./which-key.nix
