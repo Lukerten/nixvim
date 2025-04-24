@@ -5,6 +5,7 @@
   plugins.lz-n.enable = true;
 
   imports = [
+    ./completion
     ./performance.nix
   ];
 }
