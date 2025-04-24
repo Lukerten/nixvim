@@ -10,6 +10,7 @@
     ./notify.nix
     ./nvim-tree.nix
     ./tiny-inline-diagnostics.nix
+    ./trouble.nix
     ./which-key.nix
   ];
 
