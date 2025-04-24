@@ -4,6 +4,8 @@
       enable = true;
       standalonePlugins = [
         "copilot.lua"
+        "nvim-treesitter"
+        "hmts.nvim"
       ];
     };
     byteCompileLua = rec {

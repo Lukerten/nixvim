@@ -10,5 +10,6 @@
     ./keymap.nix
     ./opts.nix
     ./performance.nix
+    ./treesitter.nix
   ];
 }
