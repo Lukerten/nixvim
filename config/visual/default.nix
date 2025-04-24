@@ -4,6 +4,7 @@
     ./dashboard.nix
     ./gitsigns.nix
     ./indent-blankline.nix
+    ./leap.nix
     ./tiny-inline-diagnostics.nix
     ./which-key.nix
   ];
