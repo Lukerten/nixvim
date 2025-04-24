@@ -5,6 +5,7 @@
     ./gitsigns.nix
     ./indent-blankline.nix
     ./leap.nix
+    ./lualine.nix
     ./tiny-inline-diagnostics.nix
     ./which-key.nix
   ];
