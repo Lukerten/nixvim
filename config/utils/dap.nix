@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins = {
+  plugins = {
     dap.enable = true;
     dap-go.enable = true;
     dap-ui.enable = true;

@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins.presence-nvim = {
+  plugins.presence-nvim = {
     enable = true;
     autoUpdate = true;
     logLevel = null;

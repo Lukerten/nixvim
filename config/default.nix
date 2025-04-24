@@ -9,6 +9,7 @@
     ./copilot
     ./languages
     ./theme
+    ./utils
     ./snippets
     ./visual
     ./keymap.nix

@@ -1,5 +1,5 @@
 {
-  programs.nixvim.plugins = {
+  plugins = {
     vim-dadbod.enable = true;
     vim-dadbod-ui.enable = true;
   };

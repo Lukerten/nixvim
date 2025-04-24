@@ -1,7 +1,7 @@
 {
-  programs.nixvim.plugins.coverage.enable = true;
+  plugins.coverage.enable = true;
 
-  programs.nixvim.keymaps = [
+  keymaps = [
     {
       key = "<leader>Cc";
       action = "<cmd>Coverage<CR>";
