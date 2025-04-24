@@ -117,7 +117,7 @@ in {
             }
           ];
 
-        footer = ["Those that can, do. Those that can't, complain."];
+        footer = ["" "Those that can, do. Those that can't, complain."];
       };
     };
   };
