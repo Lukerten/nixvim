@@ -9,6 +9,7 @@
         "nvim-tree.lua"
         "conform.nvim"
         "typst-preview.nvim"
+        "mini.nvim"
       ];
     };
     byteCompileLua = rec {
