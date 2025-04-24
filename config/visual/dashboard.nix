@@ -24,7 +24,7 @@ in {
       };
 
       config = {
-        packages.enable = true;
+        packages.enable = false;
         mru.limit = 10;
 
         project.enable = true;
