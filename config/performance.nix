@@ -2,7 +2,9 @@
   performance = {
     combinePlugins = {
       enable = true;
-      standalonePlugins = [];
+      standalonePlugins = [
+        "copilot.lua"
+      ];
     };
     byteCompileLua = rec {
       enable = true;
