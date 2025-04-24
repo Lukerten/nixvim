@@ -7,6 +7,8 @@
         "nvim-treesitter"
         "hmts.nvim"
         "nvim-tree.lua"
+        "conform.nvim"
+        "typst-preview.nvim"
       ];
     };
     byteCompileLua = rec {

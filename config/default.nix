@@ -7,6 +7,7 @@
   imports = [
     ./completion
     ./copilot
+    ./languages
     ./theme
     ./snippets
     ./visual
