@@ -6,6 +6,7 @@
 
   imports = [
     ./completion
+    ./copilot
     ./performance.nix
   ];
 }

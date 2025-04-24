@@ -1,6 +1,6 @@
 {
   plugins = {
-    # blink-copilot.enable = true;
+    blink-copilot.enable = true;
     blink-emoji.enable = true;
     blink-cmp = {
       enable = true;
@@ -37,12 +37,12 @@
               module = "blink-emoji";
               score_offset = 1;
             };
-            # copilot =
-            #   name = "copilot";
-            #   module = "blink-copilot";
-            #   async = true;
-            #   score_offset = 100;
-            # };
+            copilot = {
+              name = "copilot";
+              module = "blink-copilot";
+              async = true;
+              score_offset = 100;
+            };
           };
         };
 
