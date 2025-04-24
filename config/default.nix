@@ -9,6 +9,7 @@
     ./copilot
     ./theme
     ./snippets
+    ./visual
     ./keymap.nix
     ./opts.nix
     ./performance.nix
