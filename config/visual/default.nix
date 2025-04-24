@@ -6,6 +6,7 @@
     ./indent-blankline.nix
     ./leap.nix
     ./lualine.nix
+    ./mini.nix
     ./noice.nix
     ./notify.nix
     ./nvim-tree.nix
