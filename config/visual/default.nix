@@ -10,6 +10,7 @@
     ./noice.nix
     ./notify.nix
     ./nvim-tree.nix
+    ./nvim-ufo.nix
     ./snacks.nix
     ./tiny-inline-diagnostics.nix
     ./trouble.nix
@@ -24,7 +25,7 @@
   extraConfigLua =
     # lua
     ''
-      vim.wo.fillchars='eob: '
-      vim.opt.fillchars='eob: '
+      vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+      vim.o.foldcolumn = "0"
     '';
 }
