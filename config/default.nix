@@ -8,6 +8,7 @@
     ./completion
     ./copilot
     ./theme
+    ./snippets
     ./keymap.nix
     ./opts.nix
     ./performance.nix
