@@ -1,8 +1,8 @@
 {
   plugins = {
-    lsp.servers.scheme_langserver = {
-      enable = true;
-      settings = {};
-    };
+    # lsp.servers.scheme_langserver = {
+    #   enable = true;
+    #   settings = {};
+    # };
   };
 }

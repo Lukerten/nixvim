@@ -50,7 +50,7 @@
     # Generic LSP Server Setup
     lsp = {
       enable = true;
-      inlayHints = false;
+      inlayHints = true;
       keymaps = {
         diagnostic = {
           "<leader>E" = "open_float";
