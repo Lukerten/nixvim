@@ -6,9 +6,9 @@
     ./dap.nix
     ./gitlinker.nix
     ./git-worktree.nix
+    ./neocord.nix
     ./neogit.nix
     ./neorg.nix
-    ./presence.nix
     ./remote-nvim.nix
     ./schemastore.nix
     ./todo-comment.nix
