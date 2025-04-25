@@ -86,7 +86,7 @@ in {
               icon = "  ";
               desc = "Neogit";
               action.__raw = "function() vim.cmd[[Neogit]] end";
-              key = "s";
+              key = "g";
             }
           ]
           ++ optionals hasRemoteNvim [
@@ -121,4 +121,6 @@ in {
       };
     };
   };
+  autoCmd = [
+  ];
 }
