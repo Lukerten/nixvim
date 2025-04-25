@@ -11,6 +11,7 @@
     ./theme
     ./utils
     ./snippets
+    ./terminal
     ./visual
     ./autocmd.nix
     ./keymap.nix
