@@ -47,7 +47,7 @@
   };
   keymaps = [
     {
-      key = "<leader>e";
+      key = "<leader>w";
       action = "<cmd>NvimTreeToggle<cr>";
       options = {
         silent = true;
