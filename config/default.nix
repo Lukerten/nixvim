@@ -12,6 +12,7 @@
     ./utils
     ./snippets
     ./visual
+    ./autocmd.nix
     ./keymap.nix
     ./opts.nix
     ./performance.nix
