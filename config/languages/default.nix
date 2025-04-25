@@ -11,6 +11,7 @@
     ./kotlin.nix
     ./latex.nix
     ./lean.nix
+    ./lisp.nix
     ./lua.nix
     ./markdown.nix
     ./nix.nix
