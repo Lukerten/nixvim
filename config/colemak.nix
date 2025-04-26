@@ -41,14 +41,13 @@
         vim.keymap.set(mapping[1], mapping[2], mapping[3], mapping[4])
       end
     end
-  '';
 
-  # Autocoomand to apply this script on all Buffers
-  AutoCmd = [
-    {
-      event = "BufEnter";
-      pattern = "*";
-      command = "lua apply_colemak_mappings()";
-    }
-  ];
+    -- Setup autocommands to apply mapping when entering a buffer
+    vim.api.nvim_create_autocmd("BufEnter", {
+      pattern = "*",
+      callback = function()
+        apply_colemak_mappings()
+      end,
+    })
+  '';
 }
