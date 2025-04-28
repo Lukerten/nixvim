@@ -14,7 +14,6 @@
     ./terminal
     ./visual
     ./autocmd.nix
-    ./colemak.nix
     ./keymap.nix
     ./opts.nix
     ./performance.nix
