@@ -7,6 +7,8 @@
   imports = [
     ./cpp.nix
     ./csharp.nix
+    ./elixir.nix
+    ./erlang.nix
     ./golang.nix
     ./css.nix
     ./html.nix
