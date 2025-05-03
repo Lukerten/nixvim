@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins = {
     conform-nvim = {
       settings.formatters_by_ft = {
@@ -24,42 +24,39 @@
         };
       };
     };
-    lsp.servers.ts_ls = {
+    lsp.servers.eslint.enable = true;
+    typescript-tools = {
       enable = true;
-      filetypes = [
-        "javascript"
-        "javascriptreact"
+
+      lazyLoad.settings.ft = [
         "typescript"
+        "javascript"
         "typescriptreact"
+        "javascriptreact"
       ];
-      extraOptions = {
+
+      settings = {
         settings = {
-          javascript = {
-            inlayHints = {
-              includeInlayEnumMemberValueHints = true;
-              includeInlayFunctionLikeReturnTypeHints = true;
-              includeInlayFunctionParameterTypeHints = true;
-              includeInlayParameterNameHints = "all";
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-              includeInlayPropertyDeclarationTypeHints = true;
-              includeInlayVariableTypeHints = true;
-            };
-          };
-          typescript = {
-            inlayHints = {
-              includeInlayEnumMemberValueHints = true;
-              includeInlayFunctionLikeReturnTypeHints = true;
-              includeInlayFunctionParameterTypeHints = true;
-              includeInlayParameterNameHints = "all";
-              includeInlayParameterNameHintsWhenArgumentMatchesName = true;
-              includeInlayPropertyDeclarationTypeHints = true;
-              includeInlayVariableTypeHints = true;
-            };
+          code_lens = "off";
+          complete_function_calls = false;
+          disable_member_code_lens = true;
+          expose_as_code_action = "all";
+          include_completions_with_insert_text = true;
+          publish_diagnostic_on = "insert_leave";
+          separate_diagnostic_server = true;
+          tsserver_locale = "en";
+          tsserver_max_memory = "auto";
+          tsserver_path = "${pkgs.typescript}/lib/node_modules/typescript/lib/tsserver.js";
+          jsx_close_tag = {
+            enable = false;
+            filetypes = [
+              "javascriptreact"
+              "typescriptreact"
+            ];
           };
         };
       };
     };
-    lsp.servers.eslint.enable = true;
     none-ls.sources.formatting.prettier.disableTsServerFormatter = false;
   };
 }
