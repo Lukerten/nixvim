@@ -20,9 +20,7 @@
       mode = "n";
       key = "<leader>E";
       action = "<CMD>Yazi<CR>";
-      options = {
-        desc = "Yazi (current file)";
-      };
+      options.desc = "Yazi";
     }
   ];
 }
