@@ -2,24 +2,6 @@
   plugins.snacks = {
     enable = true;
     settings = {
-      notifier = {
-        enabled = true;
-        style = "minimal";
-        timeout = 3000;
-      };
-      indent = {
-        indent.enabled = false;
-        chunk = {
-          enabled = true;
-          only_current = true;
-          char = {
-            arrow = "─";
-            corner_top = "┌";
-            corner_bottom = "└";
-          };
-          hl = "SnacksIndentScope";
-        };
-      };
       picker = {
         actions.__raw = ''require("trouble.sources.snacks").actions'';
         matcher = {

@@ -27,11 +27,83 @@
     ./yaml.nix
   ];
 
+  userCommands = {
+    FormatDisable = {
+      bang = true;
+      command.__raw = ''
+        function(args)
+           if args.bang then
+            -- FormatDisable! will disable formatting just for this buffer
+            vim.b.disable_autoformat = true
+          else
+            vim.g.disable_autoformat = true
+          end
+        end
+      '';
+      desc = "Disable automatic formatting on save";
+    };
+
+    FormatEnable = {
+      bang = true;
+      command.__raw = ''
+        function(args)
+           if args.bang then
+            vim.b.disable_autoformat = false
+          else
+            vim.g.disable_autoformat = false
+          end
+        end
+      '';
+      desc = "Enable automatic formatting on save";
+    };
+
+    FormatToggle = {
+      bang = true;
+      command.__raw = ''
+        function(args)
+          if args.bang then
+            -- Toggle formatting for current buffer
+            vim.b.disable_autoformat = not vim.b.disable_autoformat
+          else
+            -- Toggle formatting globally
+            vim.g.disable_autoformat = not vim.g.disable_autoformat
+          end
+        end
+      '';
+      desc = "Toggle automatic formatting on save";
+    };
+
+    InlineHintsEnable = {
+      command.__raw = ''
+        function()
+          vim.lsp.inlay_hint.enable(true)
+        end
+      '';
+      desc = "Enable lsp inline hints";
+    };
+
+    InlineHintsDisable = {
+      command.__raw = ''
+        function()
+          vim.lsp.inlay_hint.enable(false)
+        end
+      '';
+      desc = "Disable lsp inline hints";
+    };
+
+    InlineHintsToggle = {
+      command.__raw = ''
+        function()
+          vim.lsp.inlay_hint.toggle()
+        end
+      '';
+      desc = "Toggle lsp inline hints";
+    };
+  };
+
   plugins = {
-    #Formatter and Diagnostics
     none-ls.enable = true;
 
-    # Format on Save, ...
     conform-nvim = {
       enable = true;
       package = pkgs.vimPlugins.conform-nvim;
@@ -47,7 +119,6 @@
       };
     };
 
-    # Generic LSP Server Setup
     lsp = {
       enable = true;
       inlayHints = true;

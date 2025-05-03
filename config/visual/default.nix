@@ -6,13 +6,13 @@
     ./indent-blankline.nix
     ./leap.nix
     ./lualine.nix
-    ./mini.nix
     ./noice.nix
     ./notify.nix
     ./nvim-tree.nix
     ./nvim-ufo.nix
     ./snacks.nix
-    ./tiny-inline-diagnostics.nix
+    ./theme.nix
+    ./tiny-id.nix
     ./trouble.nix
     ./which-key.nix
   ];

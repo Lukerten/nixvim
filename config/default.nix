@@ -8,7 +8,6 @@
     ./completion
     ./copilot
     ./languages
-    ./theme
     ./utils
     ./snippets
     ./terminal

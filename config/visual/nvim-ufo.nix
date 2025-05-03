@@ -36,6 +36,49 @@
     }
   ];
 
+  userCommands = {
+    FoldBarEnable = {
+      bang = true;
+      command.__raw =
+        # lua
+        ''
+          function(args)
+            vim.wo.foldcolumn = 'auto:9'
+          end
+        '';
+      desc = "Enable Fold Column";
+    };
+
+    FoldBarDisable = {
+      bang = true;
+      command.__raw =
+        # lua
+        ''
+          function(args)
+            vim.wo.foldcolumn = '0'
+          end
+        '';
+      desc = "Disable Fold Column";
+    };
+
+    FoldBarToggle = {
+      bang = true;
+      command.__raw =
+        # lua
+        ''
+          function(args)
+            local foldcolumn = vim.wo.foldcolumn
+            if foldcolumn == '0' then
+              vim.wo.foldcolumn = 'auto:9'
+            else
+              vim.wo.foldcolumn = '0'
+            end
+          end
+        '';
+      desc = "Toggle Fold Column";
+    };
+  };
+
   plugins.nvim-ufo = {
     enable = true;
     settings = {
