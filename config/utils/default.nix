@@ -1,5 +1,6 @@
 {
   imports = [
+    ./ccc.nix
     ./coverage.nix
     ./schemastore.nix
     ./dadbod.nix
