@@ -78,7 +78,7 @@
   keymaps = lib.mkIf config.plugins.ccc.enable [
     {
       mode = "n";
-      key = "<leader>up";
+      key = "<leader>c";
       action = "<cmd>CccPick<CR>";
       options = {
         desc = "Color Picker toggle";
