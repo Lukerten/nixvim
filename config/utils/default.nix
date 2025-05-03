@@ -10,7 +10,6 @@
     ./harpoon.nix
     ./neocord.nix
     ./neogit.nix
-    ./neorg.nix
     ./remote-nvim.nix
     ./schemastore.nix
     ./todo-comment.nix
@@ -18,11 +17,12 @@
   ];
 
   plugins = {
-    nvim-autopairs.enable = true;
-    vim-surround.enable = true;
-    undotree.enable = true;
     bufdelete.enable = true;
+    nvim-autopairs.enable = true;
     gx.enable = true;
+    sleuth.enable = true;
+    undotree.enable = true;
+    vim-surround.enable = true;
   };
 
   keymaps = [
