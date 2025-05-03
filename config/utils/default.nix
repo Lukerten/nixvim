@@ -13,6 +13,7 @@
     ./remote-nvim.nix
     ./schemastore.nix
     ./todo-comment.nix
+    ./yanky.nix
   ];
 
   plugins = {
