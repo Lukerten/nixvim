@@ -18,6 +18,7 @@ in {
           __unkeyed-9 = "gitcommit";
           __unkeyed-10 = "Avante";
           __unkeyed-11 = "AvanteSelectedFiles";
+          __unkeyed-12 = "neo-tree";
         };
         component_separators = {
           left = "⏽";

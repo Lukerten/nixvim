@@ -6,15 +6,16 @@
     ./indent-blankline.nix
     ./leap.nix
     ./lualine.nix
+    ./neotree.nix
     ./noice.nix
     ./notify.nix
-    ./nvim-tree.nix
     ./nvim-ufo.nix
     ./snacks.nix
     ./theme.nix
     ./tiny-id.nix
     ./trouble.nix
     ./which-key.nix
+    ./yazi.nix
   ];
 
   plugins = {

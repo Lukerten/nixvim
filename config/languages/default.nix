@@ -124,7 +124,7 @@
       inlayHints = true;
       keymaps = {
         diagnostic = {
-          "<leader>E" = "open_float";
+          "<leader>Ch" = "open_float";
           "[" = "goto_prev";
           "]" = "goto_next";
         };
@@ -143,9 +143,9 @@
           "<leader>CR" = "references";
           "<leader>CI" = "implementation";
           "<leader>Cy" = "type_definition";
-          "<leader>Wl" = "list_workspace_folders";
-          "<leader>Wr" = "remove_workspace_folder";
-          "<leader>Wa" = "add_workspace_folder";
+          "<leader>CWl" = "list_workspace_folders";
+          "<leader>CWr" = "remove_workspace_folder";
+          "<leader>CWa" = "add_workspace_folder";
         };
       };
       preConfig =
