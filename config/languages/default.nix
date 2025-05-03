@@ -134,7 +134,7 @@
           "gr" = "references";
           "gI" = "implementation";
           "gy" = "type_definition";
-          "<leader>h" = "hover";
+          "<leader>Ch" = "hover";
           "<leader>Cf" = "format";
           "<leader>Ca" = "code_action";
           "<leader>Cr" = "rename";
